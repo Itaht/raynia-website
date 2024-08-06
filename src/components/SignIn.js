@@ -4,6 +4,7 @@ import styles from '../styles/SignIn.module.css';
 const SignIn = () => {
   return (
     <div className={styles.signInContainer}>
+      <header></header>
       <h2>Sign In</h2>
       <form>
         <div className={styles.formGroup}>
