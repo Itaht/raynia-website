@@ -1,0 +1,116 @@
+@import url('https://fonts.googleapis.com/css2?family=Karla:wght@500&display=swap');
+
+body {
+  overflow: hidden; /* Prevents scrolling */
+  height: 100%; /* Ensures the body takes the full height */
+  margin: 0; /* Removes default body margin */
+}
+
+.header {
+  z-index: 20;
+  position: fixed; /* Fixes the header to the top */
+  top: 88%; /* Aligns it to the top edge */
+  left: 50%;
+  transform: translateX(-50%); /* Centers it horizontally */
+  background-color: #EEEEEE;
+  width: 100%; /* Ensures the header spans the full width */
+  padding: 20px 0; /* Adds some padding */
+  text-align: center; /* Centers the text */
+  box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.2);/* Adds shadow under the header */
+  height: 150px;
+}
+
+.buttonWrapper {
+    margin: 10px 0;
+    position: relative;
+    z-index: 10;
+    top: -30px;
+    left: 50px;
+  }
+
+  .buttonWrapper1 {
+    margin: 10px 0;
+    position: relative;
+    z-index: 10;
+    top: -30px;
+    left: 20px;
+  }
+
+  .buttonWrapper2 {
+    margin: 10px 0;
+    position: relative;
+    z-index: 10;
+    top: -30px;
+    left: 20px;
+  }
+  
+.buttonhome {
+    position: inherit;
+    margin-left: -60%;
+    top: -40px;
+    z-index: 2;
+    background: transparent;
+    border: none;
+    cursor: pointer;    
+    height: 40px;
+    width: 40px;
+    color: transparent  ;
+}
+
+.homewhite {
+    position: relative;
+    height: 100%;
+    width: auto;
+    top: -30px;
+    left: -40px;
+    z-index: 1;
+}
+
+.buttonsearch {
+    position: inherit;
+    top: -95px;
+    z-index: 2;
+    background: transparent;
+    border: none;
+    cursor: pointer;    
+    height: 40px;
+    width: 40px;
+    color: transparent  ;
+}
+
+.searchblack {
+    position: relative;
+    height: 100%;
+    width: auto;
+    top: -80px;
+    left: -45px;
+    z-index: 1;
+}
+
+.buttonsign {
+    position: inherit;
+    margin-left: 65%;
+    top: -145px;
+    z-index: 2;
+    background: transparent;
+    border: none;
+    cursor: pointer;    
+    height: 40px;
+    width: 40px;
+    color: transparent  ;
+}
+
+.signblack {
+    position: relative;
+    height: 100%;
+    width: auto;
+    top: -135px;
+    left: -30px;
+    z-index: 1;
+}
+
+.purplebutton {
+    position: relative;
+    top: -5px;
+    left: -100px;
+}

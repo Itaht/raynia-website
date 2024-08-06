@@ -29,17 +29,17 @@ body {
   margin-top: 35px;
 }
 
-.profileContainer {
+.Container {
   position: relative;
   padding: 20px;
   text-align: center;
   flex-grow: 1; /* Allow it to grow and fill the space */
 }
 
-.profileDetails {
+.Details {
   font-size: 30px;
   margin-top: 105px;
-  margin-left: -135px;
+  margin-left: -40%;
   letter-spacing: 3px;
   font-weight: 400; /* Medium font weight */
   color: #444; /* Medium-dark color */

@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import styles from '../styles/HomePage.module.css';
 import Header from '../components/Header';
+import BottomHeader from './BottomHeader';
 
 const HomePage = () => {
   const [showPopup, setShowPopup] = useState(false);
@@ -52,8 +53,9 @@ const HomePage = () => {
   return (
     <div className={styles.pageContainer}>
       <Header />
-      <div className={styles.profileContainer}>
-        <div className={styles.profileDetails}>Explore books</div>
+      <BottomHeader />
+      <div className={styles.Container}>
+        <div className={styles.Details}>Explore books</div>
         <div className={styles.icontutorial} onClick={handleIconClick}>
           <img src='/icontutorial.svg' alt='Icon Tutorial' />
         </div>

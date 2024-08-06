@@ -7,6 +7,7 @@ import Profile from './components/Profile';
 import Search from './components/Search';
 import SearchResult from './components/SearchResult';
 import HomePage from './components/HomePage';
+import Sign from './components/Sign';
 import './styles/App.css';
 
 const App = () => {
@@ -22,6 +23,7 @@ const App = () => {
             <Route path="/search" element={<Search />} />
             <Route path="/search-result" element={<SearchResult />} />
             <Route path="/homepage" element={<HomePage />} />
+            <Route path="/sign" element={<Sign />} />
           </Routes>
         </main>
       </div>
