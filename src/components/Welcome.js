@@ -5,10 +5,11 @@ import styles from '../styles/Welcome.module.css';
 const Welcome = () => {
   return (
     <div className={styles.welcome}>
+      <div className={styles.back}></div>
       <motion.div
         initial={{ y: '200%', opacity: 0 }}
         animate={{ y: '0%', opacity: 1 }}
-        transition={{ duration: 1, ease: 'easeOut', delay: 1.5 }}
+        transition={{ duration: 1, ease: 'easeOut', delay: 1 }}
         className={styles.name}
       >
         Raynia
@@ -16,7 +17,7 @@ const Welcome = () => {
       <motion.div
         initial={{ y: '200%', opacity: 1 }}
         animate={{ y: '0%', opacity: 0 }}
-        transition={{ duration: 1, ease: 'easeOut', delay: 1.5 }}
+        transition={{ duration: 1, ease: 'easeOut', delay: 1 }}
         className={styles.namewhite}
       >
         Raynia
@@ -24,7 +25,7 @@ const Welcome = () => {
       <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
-        transition={{ duration: 1, ease: 'easeOut', delay: 1.5 }}
+        transition={{ duration: 1, ease: 'easeOut', delay: 1.2 }}
         className={styles.buttons}
       >
         <div className={styles.buttonWrapper}>
@@ -39,8 +40,8 @@ const Welcome = () => {
       </motion.div>
       <motion.div
         initial={{ scale: 0 }}
-        animate={{ scale: 4 }}
-        transition={{ duration: 3, ease: 'easeOut', delay: 1.5 }}
+        animate={{ scale: 8 }}
+        transition={{ duration: 3, ease: 'easeOut', delay: 1 }}
         className={styles.welcomemain}
       >
         <img className={styles.welcomedrop} src='/welcomedrop.svg' alt='Welcome Drop' />
