@@ -1,0 +1,43 @@
+.searchResultContainer {
+    max-width: 800px;
+    margin: 50px auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    animation: fadeIn 1s ease-in-out;
+  }
+  
+  @keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+  
+  .results {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+  }
+  
+  .resultCard {
+    padding: 15px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    background-color: #f9f9f9;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    animation: slideInFromBottom 0.5s ease-in-out;
+  }
+  
+  @keyframes slideInFromBottom {
+    from { transform: translateY(100%); }
+    to { transform: translateY(0); }
+  }
+  
+  .resultCard h3 {
+    margin-top: 0;
+  }
+  
+  .resultCard p {
+    margin: 5px 0;
+  }
+  

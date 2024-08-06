@@ -1,0 +1,106 @@
+@import url('https://fonts.googleapis.com/css2?family=Karla:wght@500&display=swap');
+
+.welcome {
+  text-align: center;
+  margin-top: 50px;
+  position: relative;
+  z-index: 10;
+}
+
+.name {
+  font-size: 52px;
+  margin: 250px 0 20px 0;
+  font-family: 'Karla', sans-serif;
+  font-weight: 500;
+  color: #6B2DBC;
+  letter-spacing: 8px;
+  z-index: 10;
+  position: relative;
+}
+
+.namewhite {
+  font-size: 52px;
+  margin: 250px 0 20px 0;
+  font-family: 'Karla', sans-serif;
+  font-weight: 500;
+  color: #f4f4f4;
+  letter-spacing: 8px;
+  z-index: 10;
+  position: relative;
+  top: -311px;
+}
+
+.buttons {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 80px;
+  margin-top: -260px;
+  z-index: 10;
+  position: relative;
+}
+
+.buttonWrapper {
+  margin: 10px 0;
+  position: relative;
+  z-index: 10;
+}
+
+.buttonin, .buttonup {
+  background-color: transparent;
+  border: 3.5px solid #AB80E3;
+  border-radius: 60px;
+  color: #AB80E3;
+  padding: 20px 110px;
+  font-size: 30px;
+  cursor: pointer;
+  transition: background-color 0.3s, color 0.3s;
+  letter-spacing: 3px;
+  font-weight: bold;
+  z-index: 10;
+  position: relative;
+  text-decoration: none; /* Remove underline */
+}
+
+.buttonup {
+  padding: 20px 105px;
+  text-decoration: none; /* Remove underline */
+}
+
+.buttonguest {
+  background-color: transparent;
+  color: #AB80E3;
+  font-size: 18px;
+  letter-spacing: 1px;
+  font-weight: bold;
+  position: relative;
+  top: -20px;
+  padding: 0;
+  border: none;
+  z-index: 10;
+  text-decoration: none; /* Remove underline */
+}
+
+.buttonin:hover, .buttonup:hover {
+  background-color: #AB80E3;
+  color: #F4F4F4;
+  transform: scale(1.05);
+  z-index: 10;
+  text-decoration: none; /* Remove underline on hover */
+}
+
+.welcomemain {
+  position: relative;
+  z-index: 1;
+}
+
+.welcomedrop {
+  margin-top: -420px; /* Adjust as needed */
+  width: 500px; /* Adjust as needed */
+  height: auto; /* Maintain aspect ratio */
+  position: absolute;
+  top: -50px; /* Adjust as needed */
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 1;
+}
