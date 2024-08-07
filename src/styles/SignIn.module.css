@@ -89,6 +89,7 @@
     left: 20px;
     font-size: 40px;
     z-index: 1;
+    color: transparent;
   }
 
   .iconback {

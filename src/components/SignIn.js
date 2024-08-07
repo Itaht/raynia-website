@@ -10,8 +10,8 @@ const SignIn = () => {
       <BottomHeader />
       <div className={styles.topic}>Sign in</div>
       <div className={styles.buttonback}>
-        <a href="/homepage" className={styles.back}>O</a>
-        <img src='' alt='Back' className={styles.iconback}/>      
+        <a href="/sign" className={styles.back}>O</a>
+        <img src='/back.svg' alt='Back' className={styles.iconback}/>      
       </div>
       <form>
         <div className={styles.formGroup}>

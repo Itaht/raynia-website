@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 import styles from '../styles/Search.module.css';
+import Header from '../components/Header';
+import BottomHeader from './BottomHeader';
 
 const Search = () => {
   const [query, setQuery] = useState('');
@@ -17,6 +19,8 @@ const Search = () => {
 
   return (
     <div className={styles.searchContainer}>
+      <Header />
+      <BottomHeader />
       <h2>Search for Books</h2>
       <form onSubmit={handleSearch}>
         <input

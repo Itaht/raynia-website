@@ -9,111 +9,91 @@ body {
 .header {
   z-index: 20;
   position: fixed; /* Fixes the header to the top */
-  top: 88%; /* Aligns it to the top edge */
+  top: 86%; /* Aligns it to the top edge */
   left: 50%;
   transform: translateX(-50%); /* Centers it horizontally */
   background-color: #EEEEEE;
   width: 100%; /* Ensures the header spans the full width */
   padding: 20px 0; /* Adds some padding */
   text-align: center; /* Centers the text */
-  box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.2);/* Adds shadow under the header */
+  box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.2); /* Adds shadow under the header */
   height: 150px;
 }
 
-.buttonWrapper {
-    margin: 10px 0;
-    position: relative;
-    z-index: 10;
-    top: -30px;
-    left: 50px;
-  }
+.buttonWrapper, .buttonWrapper1, .buttonWrapper2 {
+  margin: 10px 0;
+  position: relative;
+  z-index: 10;
+  top: 30px;
+}
 
-  .buttonWrapper1 {
-    margin: 10px 0;
-    position: relative;
-    z-index: 10;
-    top: -30px;
-    left: 20px;
-  }
+.buttonhome, .buttonsearch, .buttonsign {
+  font-size: 40px;
+  position: inherit;
+  z-index: 2;
+  background: transparent;
+  border: none;
+  cursor: pointer;    
+  height: 40px;
+  width: 40px;  
+  color: transparent;
+}
 
-  .buttonWrapper2 {
-    margin: 10px 0;
-    position: relative;
-    z-index: 10;
-    top: -30px;
-    left: 20px;
-  }
-  
 .buttonhome {
-    font-size: 40px;
-    position: inherit;
-    margin-left: -60%;
-    top: -35px;
-    z-index: 2;
-    background: transparent;
-    border: none;
-    cursor: pointer;    
-    height: 40px;
-    width: 40px;
-    color: transparent  ;
+  margin-left: -60%;
 }
 
 .homewhite {
-    position: relative;
-    height: 100%;
-    width: auto;
-    top: -30px;
-    left: -50px;
-    z-index: 1;
+  position: relative;
+  height: 100%;
+  width: auto;
+  top: -30px;
+  left: -49px;
+  z-index: 1;
 }
 
 .buttonsearch {
-    font-size: 40px;
-    position: inherit;
-    top: -85px;
-    z-index: 2;
-    background: transparent;
-    border: none;
-    cursor: pointer;    
-    height: 40px;
-    width: 40px;
-    color: transparent  ;
+  top: -85px;
 }
 
 .searchblack {
-    position: relative;
-    height: 100%;
-    width: auto;
-    top: -80px;
-    left: -45px;
-    z-index: 1;
+  position: relative;
+  height: 100%;
+  width: auto;
+  top: -80px;
+  left: -20px;
+  z-index: 1;
 }
 
 .buttonsign {
-    font-size: 40px;
-    position: inherit;
-    margin-left: 55%;
-    top: -145px;
-    z-index: 2;
-    background: transparent;
-    border: none;
-    cursor: pointer;    
-    height: 40px;
-    width: 40px;
-    color: transparent  ;
+  margin-left: 60%;
+  top: -145px;
 }
 
 .signblack {
-    position: relative;
-    height: 100%;
-    width: auto;
-    top: -140px;
-    left: -30px;
-    z-index: 1;
+  position: relative;
+  height: 100%;
+  width: auto;
+  top: -132px;
+  left: 4px;
+  z-index: 1;
 }
 
 .purplebutton {
-    position: relative;
-    top: -5px;
-    left: -110px;
+  position: absolute;
+  top: -5px;
+  left: 120px;
+  transition: transform 0.5s ease-in-out;
+}
+
+.moveToHome {
+  transform: translateX(calc(-100% - 20px)); /* Adjust as needed for spacing */
+}
+
+.moveToSearch {
+  transform: translateX(55px); /* Adjust as needed for spacing */
+}
+
+.moveToSign {
+  transform: translateX(calc(100% + 120px)); /* Adjust as needed for spacing */
 }
