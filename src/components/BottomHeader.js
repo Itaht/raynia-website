@@ -1,23 +1,36 @@
 import React, { useState, useEffect } from 'react';
-import { useNavigate } from 'react-router-dom'; // Updated import for React Router v6
+import { useNavigate, useLocation } from 'react-router-dom';
 import styles from '../styles/BottomHeader.module.css';
 
 const BottomHeader = () => {
+  const navigate = useNavigate();
+  const location = useLocation();
   const [position, setPosition] = useState('home');
-  const navigate = useNavigate(); // Updated for React Router v6
 
   useEffect(() => {
     const storedPosition = localStorage.getItem('purplebuttonPosition');
     if (storedPosition) {
       setPosition(storedPosition);
+    } else {
+      switch (location.pathname) {
+        case '/search':
+          setPosition('search');
+          break;
+        case '/sign':
+          setPosition('sign');
+          break;
+        default:
+          setPosition('home');
+          break;
+      } 
     }
-  }, []);
+  }, [location.pathname]);
 
   const handleClick = (newPosition, path) => {
     setPosition(newPosition);
     localStorage.setItem('purplebuttonPosition', newPosition);
     setTimeout(() => {
-      navigate(path); // Updated for React Router v6
+      navigate(path);
     }, 500); // Adjust the delay as needed to match the animation duration
   };
 

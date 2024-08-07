@@ -41,6 +41,7 @@ body {
 
 .buttonhome {
   margin-left: -60%;
+  top: -25px;
 }
 
 .homewhite {
@@ -91,7 +92,7 @@ body {
 }
 
 .moveToSearch {
-  transform: translateX(55px); /* Adjust as needed for spacing */
+  transform: translateX(54px); /* Adjust as needed for spacing */
 }
 
 .moveToSign {
