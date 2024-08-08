@@ -23,7 +23,7 @@ const SignIn = () => {
           <input type="password" id="password" name="password" required />
         </div>
         <div className={styles.buttonconfirm}>
-          <a href="/homepage" className={styles.confirm}>Confirm</a>
+          <a href="/profile" className={styles.confirm}>Confirm</a>
         </div>
       </form>
       <div className={styles.buttonsignup}>

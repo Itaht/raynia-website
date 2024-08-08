@@ -1,0 +1,48 @@
+@import url('https://fonts.googleapis.com/css2?family=Karla:wght@500&display=swap');
+
+body {
+  overflow: hidden; /* Prevents scrolling */
+  height: 100%; /* Ensures the body takes the full height */
+}
+
+.welcome {
+  text-align: center;
+  margin-top: 320px;
+  position: relative;
+  z-index: 10; /* Ensure it's above the background */
+}
+
+.buttonWrapper {
+  margin: 90px 0;
+  position: relative;
+  z-index: 10;
+}
+
+.buttonin, .buttonup {
+  background-color: transparent;
+  border: 3.5px solid #AB80E3;
+  border-radius: 60px;
+  color: #AB80E3;
+  padding: 20px 110px;
+  font-size: 30px;
+  cursor: pointer;
+  transition: background-color 0.3s, color 0.3s;
+  letter-spacing: 3px;
+  font-weight: bold;
+  z-index: 10;
+  position: relative;
+  text-decoration: none; /* Remove underline */
+}
+
+.buttonup {
+  padding: 20px 105px;
+  text-decoration: none; /* Remove underline */
+}
+
+.buttonin:hover, .buttonup:hover {
+  background-color: #AB80E3;
+  color: #F4F4F4;
+  transform: scale(1.05);
+  z-index: 10;
+  text-decoration: none; /* Remove underline on hover */
+}

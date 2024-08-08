@@ -1,46 +1,108 @@
-.signUpContainer {
-    max-width: 400px;
-    margin: 50px auto;
-    padding: 20px;
-    border: 1px solid #ccc;
-    border-radius: 8px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    animation: slideInFromRight 1s ease-in-out;
-  }
-  
-  @keyframes slideInFromRight {
-    from { transform: translateX(100%); }
-    to { transform: translateX(0); }
-  }
-  
-  .formGroup {
-    margin-bottom: 15px;
-  }
-  
-  .formGroup label {
-    display: block;
-    margin-bottom: 5px;
-  }
-  
-  .formGroup input {
-    width: 100%;
-    padding: 8px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-  }
-  
-  .submitButton {
-    width: 100%;
-    padding: 10px;
-    background-color: #28a745;
-    color: white;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-    transition: background-color 0.3s;
-  }
-  
-  .submitButton:hover {
-    background-color: #218838;
-  }
-  
+@import url('https://fonts.googleapis.com/css2?family=Karla:wght@500&display=swap');
+
+body {
+  overflow: hidden; /* Prevents scrolling */
+  height: 100%; /* Ensures the body takes the full height */
+  margin: 0; /* Removes default body margin */
+}
+
+.signInContainer {
+  font-family: 'Karla', sans-serif;
+}
+
+.topic {
+  font-size: 40px;
+  margin-top: 140px;
+  margin-bottom: 20px;
+  margin-left: calc(50% - 85px);
+  letter-spacing: 3px;
+  color: #AB80E3;
+}
+
+.formGroup {
+  position: relative;
+  top: -80px;
+  margin-top: 30px;
+  margin-left: 10px;
+}
+
+.formGroup label {
+  font-size: 18px;
+  font-weight: bold;
+  display: block;
+  margin-left: 10px;
+  letter-spacing: 2px;
+  color: #AB80E3;
+}
+
+.formGroup input {
+  font-size: 16px;
+  letter-spacing: 1px;
+  color: #AB80E3;
+  font-weight: bold;
+  margin-top: 3px;
+  width: 91%;
+  padding: 8px;
+  border: 2.5px solid #AB80E3;
+  border-radius: 12px;
+  outline: none; /* Removes default focus outline */
+}
+
+.confirm {
+  background-color: #AB80E3;
+  border: 3.5px solid #AB80E3;
+  border-radius: 60px;
+  color: #f4f4f4;
+  padding: 8px 50px;
+  font-size: 22px;
+  cursor: pointer;
+  letter-spacing: 2px;
+  font-weight: bold;
+  z-index: 10;
+  position: relative;
+  text-decoration: none; /* Remove underline */
+  top: -45px;
+  margin-left: calc(50% - 105px);
+}
+
+.buttonsignup {
+  position: absolute;
+  top: 80.5%;
+  left: calc(50% - 10px);
+}
+
+.ask {
+  position: absolute;
+  font-size: 15px;
+  letter-spacing: 1px;
+  top: 1px;
+  left: -125px;
+  width: 202px;
+}
+
+.signup {
+  font-size: 15px;
+  letter-spacing: 1px;
+  color: #AB80E3;
+  margin-left: 80px;
+}
+
+.buttonback {
+  position: relative;
+  top: -185px;
+  left: -10px;
+  z-index: 20;
+}
+
+.back {
+  position: relative;
+  top: 3px;
+  left: 20px;
+  font-size: 40px;
+  z-index: 1;
+  color: transparent;
+}
+
+.iconback {
+  position: relative;
+}

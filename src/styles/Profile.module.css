@@ -1,19 +1,78 @@
-.profileContainer {
-    max-width: 600px;
-    margin: 50px auto;
-    padding: 20px;
-    border: 1px solid #ccc;
-    border-radius: 8px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    animation: fadeIn 1s ease-in-out;
-  }
-  
-  @keyframes fadeIn {
-    from { opacity: 0; }
-    to { opacity: 1; }
-  }
-  
-  .profileDetails {
-    margin-bottom: 15px;
-  }
-  
+@import url('https://fonts.googleapis.com/css2?family=Karla:wght@500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@500&display=swap');
+
+body {
+  overflow: hidden;
+  height: 100%;
+  margin: 0;
+}
+
+.Profile {
+  font-family: 'Karla', sans-serif;
+}
+
+.buttonback {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  z-index: 20;
+  display: flex;
+  align-items: center;
+}
+
+.back {
+  position: relative;
+  font-size: 40px;
+  color: transparent;
+  margin-top: 30px;
+  margin-right: 10px; /* Add some space between the "O" and the image */
+}
+
+.iconback {
+  position: relative;
+  width: 12px;  /* Ensure the icon has a width */
+  height: auto; /* Ensure the icon has a height */
+  margin-top: 20px;
+  margin-left: -40px;
+}
+
+.template {
+  position: relative;
+  top: 130px;
+  margin-left: calc(50% - 200px);
+}
+
+.describe {
+  margin-left: 55px;
+  margin-top: -300px;
+}
+
+.name, .username, .status {
+  font-weight: bold;
+  font-size: 26px;
+  line-height: 50px;
+  letter-spacing: 0.7px;
+}
+
+.buttonconfirm {
+  margin-top: 90px; /* Adds some space above the button */
+  margin-left: calc(50% - 150px); /* Center align based on 300px width */
+}
+
+.confirm {
+  font-family: 'Inter', sans-serif !important; /* Ensure 'Inter' font is applied with !important */
+  background-color: #AB80E3;
+  border: 3.5px solid #AB80E3;
+  border-radius: 60px;
+  color: #f4f4f4;
+  width: 300px; /* Set fixed width */
+  height: 50px; /* Set fixed height */
+  font-size: 22px;
+  cursor: pointer;
+  letter-spacing: 2px;
+  font-weight: bold;
+  text-decoration: none; /* Remove underline */
+  display: flex; /* Flexbox for centering text */
+  align-items: center; /* Center vertically */
+  justify-content: center; /* Center horizontally */
+}

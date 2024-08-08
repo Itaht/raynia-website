@@ -1,35 +1,19 @@
 import React from 'react';
 import styles from '../styles/Sign.module.css';
-import Header from './Header';
+import Header from '../components/Header';
 import BottomHeader from './BottomHeader';
 
 const Sign = () => {
   return (
-    <div className={styles.signInContainer}>
+    <div className={styles.welcome}>
       <Header />
       <BottomHeader />
-      <div className={styles.topic}>Sign in</div>
-      <div className={styles.buttonback}>
-        <a href="/sign" className={styles.back}>O</a>
-        <img src='/back.svg' alt='Back' className={styles.iconback}/>      
-      </div>
-      <form>
-        <div className={styles.formGroup}>
-          <label htmlFor="email">email/username</label>
-          <input type="email" id="email" name="email" required />
+        <div className={styles.buttonWrapper}>
+          <a href="/sign-in" className={styles.buttonin}>Sign in</a>
         </div>
-        <div className={styles.formGroup}>
-          <label htmlFor="password">password</label>
-          <input type="password" id="password" name="password" required />
+        <div className={styles.buttonWrapper}>
+          <a href="/sign-up" className={styles.buttonup}>Sign up</a>
         </div>
-        <div className={styles.buttonconfirm}>
-          <a href="/homepage" className={styles.confirm}>Confirm</a>
-        </div>
-      </form>
-      <div className={styles.buttonsignup}>
-        <div className={styles.ask}>New to Raynia? </div>
-        <a href="/sign-up" className={styles.signup}>Create an account</a>
-      </div>
     </div>
   );
 };
