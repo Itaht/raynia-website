@@ -1,33 +1,74 @@
+@import url('https://fonts.googleapis.com/css2?family=Karla:wght@500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@500&display=swap');
+
+body {
+  overflow: hidden;
+  height: 100%;
+  margin: 0;
+  font-family: 'Karla', sans-serif;
+}
+
 .searchContainer {
   max-width: 600px;
   margin: 50px auto;
-  padding: 20px;
-  border: 1px solid #ccc;
-  border-radius: 8px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  padding: 0px;
+}
+
+.searchForm {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.searchInputContainer {
+  position: relative;
+  width: 100%; /* Set the width of the search box */
+  height: 60px; /* Set the height of the search box */
+  top: 80px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.searchIcon {
+  position: absolute;
+  top: 50%;
+  left: 25px; /* Adjust left spacing for the search icon */
+  transform: translateY(-50%);
+  width: 27px; /* Adjust the size of the icon */
+  height: auto; /* Adjust the size of the icon */
 }
 
 .searchInput {
   width: 100%;
-  padding: 8px;
-  margin-bottom: 10px;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-}
-
-.searchButton {
-  width: 100%;
-  padding: 10px;
-  background-color: #007bff;
-  color: white;
+  height: 100%; /* Ensure the input takes full height of the container */
+  padding-left: 70px; /* Adjust padding for the search icon */
+  padding-right: 50px; /* Add padding for the clear icon */
   border: none;
-  border-radius: 4px;
-  cursor: pointer;
-  transition: background-color 0.3s;
+  border-radius: 50px; /* Adjust border radius for the smaller size */
+  box-shadow: 0px 1px 16px rgba(0, 0, 0, 0.2);
+  font-size: 18px; /* Adjust font size */
+  outline: none;
 }
 
-.searchButton:hover {
-  background-color: #0056b3;
+.clearIcon {
+  position: absolute;
+  top: 50%;
+  right: 20px; /* Adjust right spacing for the clear icon */
+  transform: translateY(-50%);
+  font-size: 35px;
+  cursor: pointer;
+  color: #252525; /* Light gray color */
+}
+
+.searchLine {
+  position: absolute;
+  bottom: 8px; /* Position the line at the bottom */
+  left: 65px; /* Adjust as needed */
+  width: calc(100% - 110px); /* Make the line span almost the entire width */
+  height: 1px; /* Thickness of the line */
+  background-color: rgb(180, 180, 180);
+  border-radius: 2px;
 }
 
 .popup {
@@ -43,6 +84,7 @@
 }
 
 .popupContent {
+  position: relative;
   background-color: white;
   padding: 20px;
   border-radius: 8px;

@@ -9,7 +9,6 @@ const Search = () => {
 
   const handleSearch = (e) => {
     e.preventDefault();
-    // Show the popup when the search is initiated
     setShowPopup(true);
   };
 
@@ -17,20 +16,27 @@ const Search = () => {
     setShowPopup(false);
   };
 
+  const handleClearInput = () => {
+    setQuery('');
+  };
+
   return (
     <div className={styles.searchContainer}>
       <Header />
       <BottomHeader />
-      <h2>Search for Books</h2>
-      <form onSubmit={handleSearch}>
-        <input
-          type="text"
-          value={query}
-          onChange={(e) => setQuery(e.target.value)}
-          placeholder="Enter book title or author"
-          className={styles.searchInput}
-        />
-        <button type="submit" className={styles.searchButton}>Search</button>
+      <form onSubmit={handleSearch} className={styles.searchForm}>
+        <div className={styles.searchInputContainer}>
+          <img src="/iconbottomheader/searchblack.svg" alt="Search" className={styles.searchIcon} />
+          <input
+            type="text"
+            value={query}
+            onChange={(e) => setQuery(e.target.value)}
+            placeholder="search..."
+            className={styles.searchInput}
+          />
+          {query && <span className={styles.clearIcon} onClick={handleClearInput}>&times;</span>}
+          <div className={styles.searchLine}></div> {/* Add this div for the line */}
+        </div>
       </form>
       {showPopup && (
         <div className={styles.popup}>
