@@ -16,8 +16,13 @@ const BottomHeader = () => {
         case '/search':
           setPosition('search');
           break;
+        case '/signin':
+        case '/signup':
         case '/sign':
           setPosition('sign');
+          break;
+        case '/homepage':
+          setPosition('home');
           break;
         default:
           setPosition('home');
@@ -36,6 +41,15 @@ const BottomHeader = () => {
 
   return (
     <header className={styles.header}>
+      <img
+        src='/iconbottomheader/purplebutton.svg'
+        alt='Purple Button'
+        className={`${styles.purplebutton} ${
+          position === 'home' ? styles.moveToHome :
+          position === 'search' ? styles.moveToSearch :
+          position === 'sign' ? styles.moveToSign : ''
+        }`}
+      />
       <div className={styles.buttonWrapper}>
         <button className={styles.buttonhome} onClick={() => handleClick('home', '/homepage')}>hhh</button>
         <img 
@@ -60,15 +74,6 @@ const BottomHeader = () => {
           className={styles.signblack} 
         />
       </div>
-      <img
-        src='/iconbottomheader/purplebutton.svg'
-        alt='Purple Button'
-        className={`${styles.purplebutton} ${
-          position === 'home' ? styles.moveToHome :
-          position === 'search' ? styles.moveToSearch :
-          position === 'sign' ? styles.moveToSign : ''
-        }`}
-      />
     </header>
   );
 };
