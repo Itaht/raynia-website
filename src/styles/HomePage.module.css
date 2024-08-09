@@ -17,7 +17,7 @@ body {
   top: 0; /* Aligns it to the top edge */
   left: 50%;
   transform: translateX(-50%); /* Centers it horizontally */
-  background-color: #EEEEEE;
+  background-color: #F9F9F9;
   width: 100%; /* Ensures the header spans the full width */
   padding: 20px 0; /* Adds some padding */
   text-align: center; /* Centers the text */
@@ -41,8 +41,10 @@ body {
   margin-top: 105px;
   margin-left: -40%;
   letter-spacing: 3px;
-  font-weight: 400; /* Medium font weight */
-  color: #444; /* Medium-dark color */
+  font-weight: 400;
+  color: #444;
+  position: relative;
+  z-index: 10;
 }
 
 .icontutorial {
@@ -144,4 +146,14 @@ body {
 .popup button:disabled {
   background-color: transparent; /* Keep the background transparent when disabled */
   cursor: not-allowed;
+}
+
+.bg {
+  position: absolute;
+  background-color: #f4f4f4;
+  margin-top: 0px;
+  margin-left: -40px;
+  height: 155px;
+  width: 120%;
+  z-index: 1;
 }

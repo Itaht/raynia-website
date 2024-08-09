@@ -4,6 +4,7 @@ import styles from '../styles/HomePage.module.css';
 import Header from '../components/Header';
 import BottomHeader from './BottomHeader';
 import DropdownButton from '../components/DropdownButton';
+import FilterPopUp from '../components/FilterPopup';
 
 const HomePage = () => {
   const [showPopup, setShowPopup] = useState(false);
@@ -61,7 +62,11 @@ const HomePage = () => {
         <div className={styles.icontutorial} onClick={handleIconClick}>
           <img src='/icontutorial.svg' alt='Icon Tutorial' />
         </div>
+        <div className={styles.iconfilter}>
+        </div>
+        <div className={styles.bg}></div>
         <DropdownButton />
+        <FilterPopUp />
         {showPopup && (
           <div className={styles.overlay} onClick={closePopup}>
             <div className={styles.popup} onClick={e => e.stopPropagation()}>

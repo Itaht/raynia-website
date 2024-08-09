@@ -1,6 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Karla:wght@500&display=swap');
 
 body {
+  position: fixed;
   overflow: hidden; /* Prevents scrolling */
   height: 100%; /* Ensures the body takes the full height */
   margin: 0; /* Removes default body margin */
