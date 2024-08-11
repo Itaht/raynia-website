@@ -1,0 +1,442 @@
+@import url('https://fonts.googleapis.com/css2?family=Karla:wght@500&display=swap');
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Karla', sans-serif;
+  overflow-y: scroll;
+}
+
+.pageContainer {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  overflow-y: auto;
+}
+
+.contentContainer {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  overflow-y: auto;
+  padding-bottom: 30px; /* Ensure space for bottom components */
+}
+
+.topic {
+  font-size: 24px;
+  font-weight: bold;
+  margin-top: 130px;
+  margin-bottom: 30px;
+  margin-left: calc(50% - 67px);
+  letter-spacing: 1px;
+  color: #6B2DBC;
+}
+
+.bookForm {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+
+.bookBox {
+  width: 90%;
+  background-color: transparent;
+}
+
+/* Existing styles remain unchanged */
+
+.formGroup {
+  display: flex;
+  align-items: center;
+  margin-bottom: 23px;
+}
+
+.formGroup1 {
+  position: relative;
+  display: flex;
+  align-items: center;
+  margin-bottom: 23px;
+  margin-left: 30px;
+  top: -15px;
+}
+
+.formGroup label {
+  flex: 0 0 120px;
+  color: black;
+  letter-spacing: 1px;
+  font-size: 16px;
+}
+
+.formGroup input {
+  flex: 1;
+  height: 14px;
+  padding: 10px;
+  border: 2px solid #6B2DBC;
+  border-radius: 12px;
+  font-family: 'Karla', sans-serif;
+  font-size: 16px;
+  color: #6B2DBC;
+  margin-left: 10px;
+}
+
+.smallInput {
+  flex: 0 0 48%;
+  margin-right: 15px;
+  width: 80px;
+  height: 14px;
+}
+
+.formGroup input:focus {
+  outline: none;
+}
+
+.formGroup1 label {
+  flex: 0 0 90px;
+  color: black;
+  letter-spacing: 1px;
+  font-size: 16px;
+}
+
+.formGroup1 input {
+  position: relative;
+  flex: 1;
+  height: 14px;
+  padding: 10px;
+  border: 2px solid #6B2DBC;
+  border-radius: 12px;
+  font-family: 'Karla', sans-serif;
+  font-size: 16px;
+  color: #6B2DBC;
+  left: 10px;
+}
+
+.formGroup1 input:focus {
+  outline: none;
+}
+
+/* Fixed size styling for the upload button */
+.uploadButton {
+  display: inline-block;
+  background-color: #E8E0F2;
+  color: #6B2DBC;
+  padding: 10px;
+  width: 150px;
+  height: 16px;
+  border-radius: 12px;
+  border: 2px solid #6B2DBC;
+  cursor: pointer;
+  text-align: center;
+  font-family: 'Karla', sans-serif;
+  font-size: 16px;
+  margin-left: 30px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.uploadButton:hover {
+  background-color: #E8E0F2;
+  color: #6B2DBC;
+}
+
+.formGroup2 {
+  display: flex;
+  align-items: center;
+  margin-bottom: 23px;
+}
+
+.formGroup2 label {
+  flex: 0 0 125px;
+  letter-spacing: 1px;
+  font-size: 16px;
+  background-color: transparent;
+}
+
+.formGroup2 input {
+  position: relative;
+  flex: 0;
+  padding: 10px;
+  border: 2px solid #6B2DBC;
+  border-radius: 12px;
+  font-family: 'Karla', sans-serif;
+  font-size: 16px;
+  color: #6B2DBC;
+}
+
+/* Styling for the checkbox group */
+.checkboxGroup {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.checkboxGroup label {
+  font-size: 16px;
+  color: #6B2DBC;
+}
+
+.checkboxGroup input[type="checkbox"] {
+  margin-right: 10px;
+  transform: scale(1.2); /* Increase checkbox size slightly */
+}
+
+.radioGrid {
+  position: relative;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 50px;
+  margin-left: 20px;
+  top: 15px;
+  align-items: center;
+}
+
+.radioOption {
+  margin-bottom: -5px;
+}
+
+.radioOption label {
+  display: flex;
+  align-items: center;
+  font-family: 'Karla', sans-serif;
+  font-size: 16px;
+  color: #000000;
+}
+
+.radioOption input[type="radio"] {
+  appearance: none;
+  -webkit-appearance: none;
+  width: 30px;
+  height: 30px;
+  border: 1px solid #6B2DBC;
+  border-radius: 50%;
+  cursor: pointer;
+  margin-right: 12px;
+  position: relative;
+}
+
+.radioOption input[type="radio"]:checked {
+  background-color: #6B2DBC;
+  border: 0px solid #6B2DBC;
+}
+
+.radioOption input[type="radio"]:checked::after {
+  content: '';
+  position: absolute;
+  left: 9px;
+  top: 9px;
+  width: 12px;
+  height: 12px;
+  background-color: white;
+  border-radius: 50%;
+}
+
+.type {
+  font-size: 16px;
+}
+
+.type1 {
+  position: relative;
+  font-size: 16px;
+  top: 45px;
+  margin-bottom: 50px;
+}
+
+.formGroup3 {
+  position: relative;
+  top: 30px;
+}
+
+.formGroup1 h {
+    position: relative;
+    margin-left: 5px;
+}
+
+.cm {
+    position: relative;
+    margin-left: 10px;
+}
+
+.smallInput1 {
+    flex: 0 0 48%;
+    margin-right: 15px;
+    width: 60px;
+    height: 14px;
+}
+
+/* Adjust the width of formGroup4 */
+.formGroup4 {
+    position: relative;
+    display: flex;
+    align-items: center;
+    margin-bottom: 23px;
+    left: 28px;
+    top: 15px;
+    width: 90%; /* Adjust the width as needed */
+}
+
+.formGroup4 label {
+    flex: 0 0 120px;
+    color: black;
+    letter-spacing: 1px;
+    font-size: 16px;
+}
+
+.formGroup4 input {
+    flex: 1;
+    height: 14px;
+    padding: 10px;
+    border: 2px solid #6B2DBC;
+    border-radius: 12px;
+    font-family: 'Karla', sans-serif;
+    font-size: 16px;
+    color: #6B2DBC;
+    margin-left: -20px;
+    width: 100%; /* Adjust the input width based on the container */
+}
+
+.formGroup4 input:focus {
+    outline: none;
+}
+
+.kg {
+    position: relative;
+    left: 20px;
+}
+
+/* New styling for formGroup5 */
+.formGroup5 {
+    position: relative;
+    display: flex;
+    align-items: center;
+    margin-bottom: 23px;
+    left: 28px;
+    top: 15px;
+    width: 90%; /* Adjust the width as needed */
+}
+
+.formGroup5 label {
+    flex: 0 0 120px;
+    color: black;
+    letter-spacing: 1px;
+    font-size: 16px;
+}
+
+.checkboxContainer {
+    display: flex;
+    justify-content: flex-end; /* Aligns the checkboxes to the right */
+    margin-right: 50px; /* Adjust the right margin as needed */
+}
+
+.column {
+    display: flex;
+    gap: 0px;
+}
+
+.column label {
+    position: relative;
+    font-family: 'Karla', sans-serif;
+    font-weight: 400;
+    font-size: 16px;
+    color: #000000;
+    align-items: center;
+    bottom: 2px;
+}
+
+.column input[type="checkbox"] {
+    appearance: none;
+    -webkit-appearance: none;
+    width: 20px;
+    height: 20px;
+    border: 1px solid #6B2DBC;
+    border-radius: 3px;
+    cursor: pointer;
+    margin-right: 10px;
+    position: relative;
+    top: 7px;
+}
+
+.column input[type="checkbox"]:checked {
+    background-color: #6B2DBC;
+    border: 2px solid #6B2DBC;
+}
+
+.column input[type="checkbox"]:checked::after {
+    content: '';
+    position: absolute;
+    left: 5.5px;
+    top: 0.5px;
+    width: 4px;
+    height: 10px;
+    border: solid white;
+    border-width: 0 3px 3px 0;
+    transform: rotate(45deg);
+}
+
+/* Styling for the new form groups */
+.formGroup6 {
+    position: relative;
+  display: flex;
+  align-items: center;
+  margin-bottom: 23px;
+  margin-left: 30px;
+  top: 16px;
+}
+
+.formGroup6 label {
+  flex: 0 0 150px;
+  color: black;
+  letter-spacing: 1px;
+  font-size: 16px;
+}
+
+.formGroup6 input {
+    position: relative;
+    flex: 0 0 30%; /* Reduce the flex-basis to 30% */
+    width: 60px; /* Explicitly set a smaller width */
+    height: 14px;
+    padding: 10px;
+    border: 2px solid #6B2DBC;
+    border-radius: 12px;
+    font-family: 'Karla', sans-serif;
+    font-size: 16px;
+    color: #6B2DBC;
+    left: 0px;
+  }
+  
+
+.formGroup6 input:focus {
+  outline: none;
+}
+
+.gramLabel {
+  margin-left: 10px;
+  font-size: 16px;
+  color: #000000;
+}
+
+.formGroup7 {
+    position: relative;
+    display: flex;
+    align-items: center;
+    margin-bottom: 23px;
+    margin-left: 30px;
+}
+
+.formGroup7 label {
+    position: relative;
+    font-size: 16px;
+    color: #000000;
+    top: 5px; /* This will move the "font:" label down by 20px */
+}
+
+.radioOption input[type="radio"] {
+    margin-right: 10px;
+    transform: scale(1.2);
+    cursor: pointer;
+}
+
+.formgroupfont {
+    position: relative;
+    top: 23px;
+}
