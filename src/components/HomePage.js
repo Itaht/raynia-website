@@ -1,4 +1,3 @@
-// HomePage.js
 import React, { useState } from 'react';
 import styles from '../styles/HomePage.module.css';
 import Header from '../components/Header';
@@ -62,8 +61,7 @@ const HomePage = () => {
         <div className={styles.icontutorial} onClick={handleIconClick}>
           <img src='/icontutorial.svg' alt='Icon Tutorial' />
         </div>
-        <div className={styles.iconfilter}>
-        </div>
+        <div className={styles.iconfilter}></div>
         <div className={styles.bg}></div>
         <DropdownButton />
         <FilterPopUp />

@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 import styles from '../styles/Search.module.css';
 import Header from '../components/Header';
 import BottomHeader from './BottomHeader';
+import DropdownButton from '../components/DropdownButton';
+import FilterPopUp from '../components/FilterPopup';
 
 const Search = () => {
   const [query, setQuery] = useState('');
@@ -38,6 +40,10 @@ const Search = () => {
           <div className={styles.searchLine}></div> {/* Add this div for the line */}
         </div>
       </form>
+      <div className={styles.func}>
+        <DropdownButton />
+        <FilterPopUp />
+      </div>
       {showPopup && (
         <div className={styles.popup}>
           <div className={styles.popupContent}>

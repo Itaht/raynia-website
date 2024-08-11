@@ -8,14 +8,14 @@
   position: inherit;
   cursor: pointer;
   z-index: 10;
-  margin-left: 308px;
+  margin-left: calc(80% + 25px);
   margin-top: 65px;
 }
 
 .popup {
   position: fixed;
   top: 0;
-  right: 0px;
+  right: 0;
   width: 380px;
   height: 100%;
   background-color: white;
@@ -25,7 +25,7 @@
   z-index: 40;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  justify-content: flex-start;
 }
 
 .popup.open {
@@ -46,16 +46,29 @@
   cursor: pointer;
 }
 
+.textBackground {
+  position: absolute;
+  top: 45px;
+  left: 37px;
+  width: 350px;
+  height: 60px;
+  background-color: white; 
+  z-index: 1; 
+}
+
 .popup h2 {
+  position: relative;
+  z-index: 1; 
   font-family: 'Karla', sans-serif !important;
   font-weight: 600;
   font-size: 20px;
   color: #333;
   margin: 0;
   padding: 20px;
-  margin-top: 35px;
+  text-align: center;
   letter-spacing: 1px;
-  margin-left: -65px;
+  margin-right: 105px;
+  margin-top: -10px;
 }
 
 .closeButton {
@@ -69,11 +82,20 @@
   color: #000000;
 }
 
+.scrollableContent {
+  flex: 1; 
+  overflow-y: auto;
+  padding-right: 10px;
+  margin-top: 60px; 
+  margin-bottom: 100px;
+}
+
 .subjectSection, .typeSection, .levelSection {
   position: relative;
-  top:  -100px; /* Move up by 50px */
   padding: 0 20px;
   margin-left: 50px;
+  margin-bottom: 20px; /* Reduce margin */
+  top: 30px;
 }
 
 .subjectSection h3, .typeSection h3, .levelSection h3 {
@@ -89,6 +111,7 @@
 }
 
 .checkboxContainer {
+  position: relative;
   display: flex;
   flex-direction: column;
   margin-left: 20px;
@@ -159,27 +182,35 @@
   max-height: 500px;
 }
 
-/* Level Section */
-.levelSection {
-  margin-top: 20px;
-  padding: 0 20px;
-  margin-left: 50px;
+.graphContent, .graphProblem {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.5s ease-in-out;
+  margin-bottom: 10px; /* Adjusted margin */
+  margin-top: 10px;
+  position: relative;
 }
 
-.levelSection h3 {
-  font-family: 'Karla', sans-serif;
-  font-weight: 500;
-  font-size: 18px;
-  margin-bottom: 15px;
-  text-align: left;
+.graphContent.show, .graphProblem.show {
+  max-height: 500px;
+}
+
+.graphContent > div, .graphProblem > div {
+  position: relative;
+  margin-bottom: -70px; /* Remove bottom margin to avoid spacing */
+}
+
+.graphContent img, .graphProblem img {
+  max-width: 100%;
+  height: auto;
 }
 
 .radioGrid {
   display: grid;
-  grid-template-columns: repeat(2, 0.35fr); /* 2 columns */
-  grid-template-rows: repeat(3, 1fr); /* 3 rows */
-  column-gap: -5px; /* Negative space between columns */
-  row-gap: 15px; /* Space between rows */
+  grid-template-columns: repeat(2, 0.35fr); 
+  grid-template-rows: repeat(3, 1fr); 
+  column-gap: -5px; 
+  row-gap: 15px; 
   margin-left: 20px;
 }
 
@@ -198,7 +229,7 @@
   width: 20px;
   height: 20px;
   border: 1px solid #6B2DBC;
-  border-radius: 50%; /* Makes it a circle */
+  border-radius: 50%;
   cursor: pointer;
   margin-right: 12px;
   position: relative;
@@ -220,17 +251,16 @@
   border-radius: 50%;
 }
 
-/* Button Styling */
 .buttonContainer {
   position: fixed;
   bottom: 0;
   width: 380px;
   height: 100px;
   display: flex;
-  justify-content: space-around; /* Change from space-between for custom positioning */
+  justify-content: space-around;
   padding: 15px 20px;
   background-color: white;
-  box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1); /* Adds shadow to the top of the button area */
+  z-index: 2;
 }
 
 .clearButton {
@@ -247,7 +277,6 @@
   cursor: pointer;
   height: 40px;
   margin-top: 15px;
-  margin-left: -35px
 }
 
 .clearButton:hover {
@@ -268,9 +297,55 @@
   cursor: pointer;
   height: 40px;
   margin-top: 15px;
-  margin-left: -65px;
+  margin-right: 35px;
 }
 
 .confirmButton:hover {
   background-color: #5a22b5;
+}
+
+.bluegraph, .greengraph, .yellowgraph, .redgraph {
+  position: relative;
+  opacity: 1;
+  transform: scale(0.88);
+  transition: transform 0.5s ease-out, opacity 0.5s ease-out, filter 0.5s ease-out;
+  cursor: pointer;
+  position: absolute;
+  width: 90px;
+  height: 90px;
+  z-index: 0;
+}
+
+.bluegraph {
+  top: -123px;
+  left: 99.2px;
+  transform-origin: bottom left; 
+}
+
+.greengraph {
+  top: -50px;
+  left: 5.8px;
+  transform-origin: top right; 
+}
+
+.yellowgraph {
+  top: -162.5px;
+  left: 6.4px;
+  transform-origin: bottom right; 
+}
+
+.redgraph {
+  top: -90px;
+  left: 99.2px;
+  transform-origin: top left; 
+}
+
+.visible {
+  opacity: 1;
+  transform: scale(1);
+  z-index: 1;
+}
+
+.dimmed {
+  filter: brightness(0.5) contrast(0.8);
 }

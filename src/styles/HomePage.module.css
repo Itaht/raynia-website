@@ -1,9 +1,9 @@
 @import url('https://fonts.googleapis.com/css2?family=Karla:wght@500&display=swap');
 
 body {
-  overflow: hidden; /* Prevents scrolling */
-  height: 100%; /* Ensures the body takes the full height */
-  margin: 0; /* Removes default body margin */
+  overflow: hidden;
+  height: 100%;
+  margin: 0;
 }
 
 .header {
@@ -13,15 +13,15 @@ body {
   color: #6B2DBC;
   letter-spacing: 4px;
   z-index: 20;
-  position: fixed; /* Fixes the header to the top */
-  top: 0; /* Aligns it to the top edge */
+  position: fixed;
+  top: 0;
   left: 50%;
-  transform: translateX(-50%); /* Centers it horizontally */
+  transform: translateX(-50%);
   background-color: #F9F9F9;
-  width: 100%; /* Ensures the header spans the full width */
-  padding: 20px 0; /* Adds some padding */
-  text-align: center; /* Centers the text */
-  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1); /* Adds shadow under the header */
+  width: 100%;
+  padding: 20px 0;
+  text-align: center;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
 }
 
 .logo {
@@ -33,7 +33,7 @@ body {
   position: relative;
   padding: 20px;
   text-align: center;
-  flex-grow: 1; /* Allow it to grow and fill the space */
+  flex-grow: 1;
 }
 
 .Details {
@@ -49,15 +49,15 @@ body {
 
 .icontutorial {
   position: inherit;
-  z-index: 32; /* Ensure it is above the overlay and popup */
+  z-index: 32;
   height: 100%;
   margin-top: -125px;
   margin-left: 88%;
-  cursor: pointer; /* Makes it clear that the icon is clickable */
+  cursor: pointer;
 }
 
 .icontutorial img {
-  width: 30px; /* Adjust size as needed */
+  width: 30px;
   height: auto;
 }
 
@@ -67,24 +67,24 @@ body {
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent grey */
+  background-color: rgba(0, 0, 0, 0.5);
   display: flex;
   justify-content: center;
   align-items: center;
-  z-index: 30; /* Ensure it's above other content but below icontutorial */
+  z-index: 30;
 }
 
 .popup {
   position: relative; 
   text-align: center;
-  max-width: 100%; /* Ensures it doesn't overflow */
-  max-height: 100%; /* Ensures it doesn't overflow */
-  overflow: auto; /* Allows scrolling within the popup if needed */
-  z-index: 31; /* Ensure it is above the overlay */
+  max-width: 100%;
+  max-height: 100%;
+  overflow: auto;
+  z-index: 31;
 }
 
 .popup img {
-  width: 100%; /* Adjust size as needed */
+  width: 100%;
   height: auto;
 }
 
@@ -133,18 +133,18 @@ body {
 .popup button {
   margin: 5px;
   padding: 5px 10px;
-  background-color: transparent; /* Make the button background transparent */
-  color: white; /* Ensure the text color is visible */
-  border: none; /* Remove borders */
+  background-color: transparent;
+  color: white;
+  border: none;
   cursor: pointer;
 }
 
 .popup button:hover {
-  background-color: rgba(0, 0, 0, 0.1); /* Add a subtle hover effect */
+  background-color: rgba(0, 0, 0, 0.1);
 }
 
 .popup button:disabled {
-  background-color: transparent; /* Keep the background transparent when disabled */
+  background-color: transparent;
   cursor: not-allowed;
 }
 
@@ -157,3 +157,4 @@ body {
   width: 120%;
   z-index: 1;
 }
+  

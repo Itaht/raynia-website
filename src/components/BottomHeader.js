@@ -14,10 +14,10 @@ const BottomHeader = () => {
     } else {
       switch (location.pathname) {
         case '/search':
-          setPosition('search');
+          setPosition('search');  
           break;
-        case '/signin':
-        case '/signup':
+        case '/sign-in':
+        case '/sign-up':
         case '/sign':
           setPosition('sign');
           break;

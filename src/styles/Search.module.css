@@ -22,8 +22,8 @@ body {
 
 .searchInputContainer {
   position: relative;
-  width: 100%; /* Set the width of the search box */
-  height: 60px; /* Set the height of the search box */
+  width: 100%;
+  height: 60px;
   top: 80px;
   display: flex;
   align-items: center;
@@ -33,40 +33,40 @@ body {
 .searchIcon {
   position: absolute;
   top: 50%;
-  left: 25px; /* Adjust left spacing for the search icon */
+  left: 25px;
   transform: translateY(-50%);
-  width: 27px; /* Adjust the size of the icon */
-  height: auto; /* Adjust the size of the icon */
+  width: 27px;
+  height: auto;
 }
 
 .searchInput {
   width: 100%;
-  height: 100%; /* Ensure the input takes full height of the container */
-  padding-left: 70px; /* Adjust padding for the search icon */
-  padding-right: 50px; /* Add padding for the clear icon */
+  height: 100%;
+  padding-left: 70px;
+  padding-right: 50px;
   border: none;
-  border-radius: 50px; /* Adjust border radius for the smaller size */
+  border-radius: 50px;
   box-shadow: 0px 1px 16px rgba(0, 0, 0, 0.2);
-  font-size: 18px; /* Adjust font size */
+  font-size: 18px;
   outline: none;
 }
 
 .clearIcon {
   position: absolute;
   top: 50%;
-  right: 20px; /* Adjust right spacing for the clear icon */
+  right: 20px;
   transform: translateY(-50%);
   font-size: 35px;
   cursor: pointer;
-  color: #252525; /* Light gray color */
+  color: #252525;
 }
 
 .searchLine {
   position: absolute;
-  bottom: 8px; /* Position the line at the bottom */
-  left: 65px; /* Adjust as needed */
-  width: calc(100% - 110px); /* Make the line span almost the entire width */
-  height: 1px; /* Thickness of the line */
+  bottom: 8px;
+  left: 65px;
+  width: calc(100% - 110px);
+  height: 1px;
   background-color: rgb(180, 180, 180);
   border-radius: 2px;
 }
@@ -99,4 +99,9 @@ body {
   right: 10px;
   font-size: 20px;
   cursor: pointer;
+}
+
+.func {
+  position: inherit;
+  margin-left: 35px;
 }
