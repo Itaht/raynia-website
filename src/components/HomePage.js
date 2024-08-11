@@ -7,15 +7,20 @@ import FilterPopUp from '../components/FilterPopup';
 
 const HomePage = () => {
   const [showPopup, setShowPopup] = useState(false);
+  const [isClosing, setIsClosing] = useState(false);
   const [currentTutorial, setCurrentTutorial] = useState(1);
 
   const handleIconClick = () => {
     setShowPopup(true);
+    setIsClosing(false);
   };
 
   const closePopup = () => {
-    setShowPopup(false);
-    setCurrentTutorial(1); // Reset to the first tutorial when closing the popup
+    setIsClosing(true);
+    setTimeout(() => {
+      setShowPopup(false);
+      setCurrentTutorial(1); // Reset to the first tutorial when closing the popup
+    }, 500); // Duration of the slide-down animation
   };
 
   const nextTutorial = () => {
@@ -46,8 +51,7 @@ const HomePage = () => {
     { id: 17, src: '/tutorials/tutorial17.svg', alt: 'Tutorial 17' },
     { id: 18, src: '/tutorials/tutorial18.svg', alt: 'Tutorial 18' },
     { id: 19, src: '/tutorials/tutorial19.svg', alt: 'Tutorial 19' },
-    { id: 20, src: '/tutorials/tutorial20.svg', alt: 'Tutorial 20' },
-    // Add more tutorials as needed
+    { id: 20, src: '/tutorials/tutorial20.svg', alt: 'Tutorial 20' }
   ];
 
   const currentTutorialData = tutorials.find(tutorial => tutorial.id === currentTutorial);
@@ -63,11 +67,13 @@ const HomePage = () => {
         </div>
         <div className={styles.iconfilter}></div>
         <div className={styles.bg}></div>
-        <DropdownButton />
-        <FilterPopUp />
+        <div className={styles.func}>
+          <DropdownButton />
+          <FilterPopUp />
+        </div>
         {showPopup && (
           <div className={styles.overlay} onClick={closePopup}>
-            <div className={styles.popup} onClick={e => e.stopPropagation()}>
+            <div className={`${styles.popup} ${isClosing ? styles.close : styles.open}`} onClick={e => e.stopPropagation()}>
               {currentTutorialData && (
                 <>
                   <img src={currentTutorialData.src} alt={currentTutorialData.alt} />

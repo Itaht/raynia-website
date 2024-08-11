@@ -41,9 +41,9 @@ const Search = () => {
         </div>
       </form>
       <div className={styles.func}>
-        <DropdownButton />
-        <FilterPopUp />
-      </div>
+          <DropdownButton />
+          <FilterPopUp />
+        </div>
       {showPopup && (
         <div className={styles.popup}>
           <div className={styles.popupContent}>

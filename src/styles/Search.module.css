@@ -101,7 +101,18 @@ body {
   cursor: pointer;
 }
 
+.filter-dropdown-wrapper {
+  display: flex; /* or display: grid */
+  align-items: center;
+  justify-content: space-between; /* Adjust as needed */
+  position: absolute; /* Change from fixed */
+  top: 200px; /* Adjust as needed */
+  left: 50px; /* Adjust as needed */
+}
+
 .func {
-  position: inherit;
-  margin-left: 35px;
+  position: fixed;
+  top: 40px; /* Set a common top value */
+  left: 0px;
+  z-index: 32;
 }

@@ -9,6 +9,21 @@ const FilterPopup = () => {
   const [showGraphProblem, setShowGraphProblem] = useState(false);
   const [visibleGraphContent, setVisibleGraphContent] = useState(''); // Track the visible graph in "เนื้อหา"
   const [visibleGraphProblem, setVisibleGraphProblem] = useState(''); // Track the visible graph in "โจทย์"
+  const [selectedSubjects, setSelectedSubjects] = useState({
+    math: false,
+    physics: false,
+    chemistry: false,
+    biology: false,
+    astronomy: false,
+    geology: false,
+    thai: false,
+    english: false,
+    otherLanguages: false,
+    socialStudies: false,
+    history: false,
+    religion: false,
+    law: false,
+  });
 
   const togglePopup = () => {
     setIsOpen(!isOpen);
@@ -46,6 +61,36 @@ const FilterPopup = () => {
     setVisibleGraphProblem((prev) => (prev === graphName ? '' : graphName));
   };
 
+  const handleSubjectChange = (subject) => {
+    setSelectedSubjects({
+      ...selectedSubjects,
+      [subject]: !selectedSubjects[subject],
+    });
+  };
+
+  const handleClear = () => {
+    setSelectedLevel('');
+    setSelectedSubjects({
+      math: false,
+      physics: false,
+      chemistry: false,
+      biology: false,
+      astronomy: false,
+      geology: false,
+      thai: false,
+      english: false,
+      otherLanguages: false,
+      socialStudies: false,
+      history: false,
+      religion: false,
+      law: false,
+    });
+    setShowGraphContent(false);
+    setShowGraphProblem(false);
+    setVisibleGraphContent('');
+    setVisibleGraphProblem('');
+  };
+
   return (
     <div className={styles.container}>
       <img
@@ -67,68 +112,120 @@ const FilterPopup = () => {
             <div className={styles.checkboxContainer}>
               <div className={styles.column}>
                 <label>
-                  <input type="checkbox" /> คณิตศาสตร์
+                  <input
+                    type="checkbox"
+                    checked={selectedSubjects.math}
+                    onChange={() => handleSubjectChange('math')}
+                  /> คณิตศาสตร์
                 </label>
               </div>
               <div className={styles.column}>
                 <label>
-                  <input type="checkbox" /> ฟิสิกส์
+                  <input
+                    type="checkbox"
+                    checked={selectedSubjects.physics}
+                    onChange={() => handleSubjectChange('physics')}
+                  /> ฟิสิกส์
                 </label>
               </div>
               <div className={styles.column}>
                 <label>
-                  <input type="checkbox" /> เคมี
+                  <input
+                    type="checkbox"
+                    checked={selectedSubjects.chemistry}
+                    onChange={() => handleSubjectChange('chemistry')}
+                  /> เคมี
                 </label>
               </div>
               <div className={styles.column}>
                 <label>
-                  <input type="checkbox" /> ชีววิทยา
+                  <input
+                    type="checkbox"
+                    checked={selectedSubjects.biology}
+                    onChange={() => handleSubjectChange('biology')}
+                  /> ชีววิทยา
                 </label>
               </div>
               <div className={`${styles.moreOptions} ${showMore ? styles.show : ''}`}>
                 <div className={styles.column}>
                   <label>
-                    <input type="checkbox" /> ดาราศาสตร์
+                    <input
+                      type="checkbox"
+                      checked={selectedSubjects.astronomy}
+                      onChange={() => handleSubjectChange('astronomy')}
+                    /> ดาราศาสตร์
                   </label>
                 </div>
                 <div className={styles.column}>
                   <label>
-                    <input type="checkbox" /> ธรณีวิทยา
+                    <input
+                      type="checkbox"
+                      checked={selectedSubjects.geology}
+                      onChange={() => handleSubjectChange('geology')}
+                    /> ธรณีวิทยา
                   </label>
                 </div>
                 <div className={styles.column}>
                   <label>
-                    <input type="checkbox" /> ภาษาไทย
+                    <input
+                      type="checkbox"
+                      checked={selectedSubjects.thai}
+                      onChange={() => handleSubjectChange('thai')}
+                    /> ภาษาไทย
                   </label>
                 </div>
                 <div className={styles.column}>
                   <label>
-                    <input type="checkbox" /> ภาษาอังกฤษ
+                    <input
+                      type="checkbox"
+                      checked={selectedSubjects.english}
+                      onChange={() => handleSubjectChange('english')}
+                    /> ภาษาอังกฤษ
                   </label>
                 </div>
                 <div className={styles.column}>
                   <label>
-                    <input type="checkbox" /> ภาษาอื่นๆ
+                    <input
+                      type="checkbox"
+                      checked={selectedSubjects.otherLanguages}
+                      onChange={() => handleSubjectChange('otherLanguages')}
+                    /> ภาษาอื่นๆ
                   </label>
                 </div>
                 <div className={styles.column}>
                   <label>
-                    <input type="checkbox" /> สังคมศึกษา
+                    <input
+                      type="checkbox"
+                      checked={selectedSubjects.socialStudies}
+                      onChange={() => handleSubjectChange('socialStudies')}
+                    /> สังคมศึกษา
                   </label>
                 </div>
                 <div className={styles.column}>
                   <label>
-                    <input type="checkbox" /> ประวัติศาสตร์
+                    <input
+                      type="checkbox"
+                      checked={selectedSubjects.history}
+                      onChange={() => handleSubjectChange('history')}
+                    /> ประวัติศาสตร์
                   </label>
                 </div>
                 <div className={styles.column}>
                   <label>
-                    <input type="checkbox" /> ศาสนา
+                    <input
+                      type="checkbox"
+                      checked={selectedSubjects.religion}
+                      onChange={() => handleSubjectChange('religion')}
+                    /> ศาสนา
                   </label>
                 </div>
                 <div className={styles.column}>
                   <label>
-                    <input type="checkbox" /> กฎหมาย
+                    <input
+                      type="checkbox"
+                      checked={selectedSubjects.law}
+                      onChange={() => handleSubjectChange('law')}
+                    /> กฎหมาย
                   </label>
                 </div>
               </div>
@@ -221,7 +318,11 @@ const FilterPopup = () => {
             <div className={styles.checkboxContainer}>
               <div className={styles.column}>
                 <label>
-                  <input type="checkbox" onChange={handleGraphContentToggle} /> เนื้อหา
+                  <input
+                    type="checkbox"
+                    checked={showGraphContent}
+                    onChange={handleGraphContentToggle}
+                  /> เนื้อหา
                 </label>
                 <div className={`${styles.graphContent} ${showGraphContent ? styles.show : ''}`}>
                   <div><img src="/graph/graphcontent.svg" alt="Graph Content" /></div>
@@ -241,7 +342,11 @@ const FilterPopup = () => {
               </div>
               <div className={styles.column}>
                 <label>
-                  <input type="checkbox" onChange={handleGraphProblemToggle} /> โจทย์
+                  <input
+                    type="checkbox"
+                    checked={showGraphProblem}
+                    onChange={handleGraphProblemToggle}
+                  /> โจทย์
                 </label>
                 <div className={`${styles.graphProblem} ${showGraphProblem ? styles.show : ''}`}>
                   <div><img src="/graph/graphproblem.svg" alt="Graph Problem" /></div>
@@ -264,7 +369,7 @@ const FilterPopup = () => {
         </div>
 
         <div className={styles.buttonContainer}>
-          <button className={styles.clearButton}>Clear</button>
+          <button className={styles.clearButton} onClick={handleClear}>Clear</button>
           <button className={styles.confirmButton} onClick={handleConfirm}>Confirm</button>
         </div>
       </div>
