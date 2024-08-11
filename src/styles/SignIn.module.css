@@ -62,7 +62,7 @@ body {
   z-index: 10;
   position: relative;
   text-decoration: none; /* Remove underline */
-  top: -15px;
+  top: -35px;
   margin-left: calc(50% - 105px);
 }
 

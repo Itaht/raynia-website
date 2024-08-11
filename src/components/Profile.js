@@ -1,6 +1,6 @@
 import React from 'react';
 import styles from '../styles/Profile.module.css';
-import Header from '../components/Header';
+import Header from './Header';
 import BottomHeader from './BottomHeader';
 
 const Profile = () => {
@@ -26,5 +26,6 @@ const Profile = () => {
     </div>
   );
 };
+
 
 export default Profile;

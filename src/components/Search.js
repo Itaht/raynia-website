@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
 import styles from '../styles/Search.module.css';
-import Header from '../components/Header';
+import Header from './Header';
 import BottomHeader from './BottomHeader';
-import DropdownButton from '../components/DropdownButton';
-import FilterPopUp from '../components/FilterPopup';
+import DropdownButton from './DropdownButton';
+import FilterPopUp from './FilterPopup';
 
 const Search = () => {
   const [query, setQuery] = useState('');

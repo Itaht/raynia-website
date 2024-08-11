@@ -49,10 +49,6 @@ const FilterPopup = () => {
     setShowGraphProblem(event.target.checked);
   };
 
-  const handleConfirm = () => {
-    closePopup();
-  };
-
   const handleGraphContentClick = (graphName) => {
     setVisibleGraphContent((prev) => (prev === graphName ? '' : graphName));
   };
@@ -89,6 +85,25 @@ const FilterPopup = () => {
     setShowGraphProblem(false);
     setVisibleGraphContent('');
     setVisibleGraphProblem('');
+  };
+
+  const handleConfirm = () => {
+    const selectedData = {
+      selectedLevel,
+      selectedSubjects,
+      showGraphContent,
+      showGraphProblem,
+      visibleGraphContent,
+      visibleGraphProblem,
+    };
+
+    console.log('Selected Data:', selectedData);
+    
+    // Clear the selections after confirming
+    handleClear();
+    
+    // Close the popup
+    closePopup();
   };
 
   return (

@@ -1,14 +1,16 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom'; // Import the useNavigate hook
 import styles from '../styles/HomePage.module.css';
-import Header from '../components/Header';
+import Header from './Header';
 import BottomHeader from './BottomHeader';
-import DropdownButton from '../components/DropdownButton';
-import FilterPopUp from '../components/FilterPopup';
+import DropdownButton from './DropdownButton';
+import FilterPopUp from './FilterPopup';
 
 const HomePage = () => {
   const [showPopup, setShowPopup] = useState(false);
   const [isClosing, setIsClosing] = useState(false);
   const [currentTutorial, setCurrentTutorial] = useState(1);
+  const navigate = useNavigate(); // Initialize the navigate function
 
   const handleIconClick = () => {
     setShowPopup(true);
@@ -56,6 +58,11 @@ const HomePage = () => {
 
   const currentTutorialData = tutorials.find(tutorial => tutorial.id === currentTutorial);
 
+  // Handle the click event on the "+" button
+  const handleAddBookClick = () => {
+    navigate('/addbook'); // Navigate to the /addbook page
+  };
+
   return (
     <div className={styles.pageContainer}>
       <Header />
@@ -85,6 +92,11 @@ const HomePage = () => {
             </div>
           </div>
         )}
+        {/* Add the "+" button */}
+        <div className={styles.addButton} onClick={handleAddBookClick}>
+          <div className={styles.vertical}></div>
+          <div className={styles.horizontal}></div>
+        </div>
       </div>
     </div>
   );

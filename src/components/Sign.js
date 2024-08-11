@@ -1,6 +1,6 @@
 import React from 'react';
 import styles from '../styles/Sign.module.css';
-import Header from '../components/Header';
+import Header from './Header';
 import BottomHeader from './BottomHeader';
 
 const Sign = () => {

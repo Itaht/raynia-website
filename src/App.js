@@ -8,6 +8,7 @@ import Search from './components/Search';
 import SearchResult from './components/SearchResult';
 import HomePage from './components/HomePage';
 import Sign from './components/Sign';
+import AddBook from './components/AddBook';
 import './styles/App.css';
 
 const App = () => {
@@ -24,6 +25,7 @@ const App = () => {
             <Route path="/search-result" element={<SearchResult />} />
             <Route path="/homepage" element={<HomePage />} />
             <Route path="/sign" element={<Sign />} />
+            <Route path="/addbook" element={<AddBook />} />
           </Routes>
         </main>
       </div>

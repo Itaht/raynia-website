@@ -1,5 +1,5 @@
 // components/DropdownButton.js
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import styles from '../styles/DropdownButton.module.css';
 
 const DropdownButton = () => {
@@ -18,8 +18,8 @@ const DropdownButton = () => {
       setIsOpen(false);
       setAnimating(false);
     }, 300); // Duration of the animation
-    // Add your sorting logic here
-    console.log(option);
+    // Log the selected option with the prefix "sort:"
+    console.log(`Sort by ${option}`);
   };
 
   return (
