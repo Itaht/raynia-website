@@ -1,15 +1,256 @@
-.bookContainer {
-    max-width: 600px;
-    margin: 50px auto;
-    padding: 20px;
-    border: 1px solid #ccc;
-    border-radius: 8px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+body {
+  overflow-y: auto; /* Allow vertical scrolling */
+  height: 100%;
+  margin: 0;
+}
+
+.welcome {
+  height: auto;
+  min-height: 100vh;
+  overflow-y: auto; /* Allow the content inside to scroll if necessary */
+}
+
+.bookImageContainer {
+  position: relative;
+  top: 140px;
+  left: 10px;
+  width: 172px;
+  height: 249px;
+  z-index: 10;
+  cursor: pointer; /* Ensure it's clear that the image is clickable */
+}
+
+.bookImage {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 4px;
+  box-shadow: 0 4px 5px rgba(0, 0, 0, 0.4);
+  border: 3px solid #AB80E3; /* Add a border color to the image */
+}
+
+.buttonback {
+  position: absolute;
+  top: 60px;
+  left: 40px;
+  z-index: 20;
+}
+
+.back {
+  display: inline-block;
+  width: 60px;
+  height: 40px;
+  z-index: 20;
+  color: transparent;
+}
+
+.iconback {
+  width: 20%;
+  height: 50%;
+  object-fit: cover;
+}
+
+.icontutorial {
+  position: fixed;
+  top: 55px;
+  right: 45px;
+  z-index: 30;
+  cursor: pointer;
+}
+
+.icontutorial img {
+  width: 30px;
+  height: auto;
+}
+
+.iconfilter {
+  position: fixed;
+  top: 120px;
+  right: 45px;
+  z-index: 30;
+  cursor: pointer;
+}
+
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(198, 198, 198, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 99;
+}
+
+@keyframes slideUp {
+  from {
+    transform: translateY(100%);
+    opacity: 0;
   }
-  
-  .bookImage {
-    width: 100%;
-    height: auto;
-    margin-bottom: 15px;
+  to {
+    transform: translateY(0);
+    opacity: 1;
   }
-  
+}
+
+@keyframes slideDown {
+  from {
+    transform: translateY(0);
+    opacity: 1;
+  }
+  to {
+    transform: translateY(100%);
+    opacity: 0;
+  }
+}
+
+.popup {
+  position: relative;
+  text-align: center;
+  max-width: 100%;
+  max-height: 100%;
+  overflow: auto;
+  z-index: 100;
+  animation-duration: 0.5s;
+}
+
+.popup.open {
+  animation-name: slideUp;
+}
+
+.popup.close {
+  animation-name: slideDown;
+}
+
+.popup img {
+  width: 100%;
+  height: auto;
+}
+
+.buttonClose {
+  position: absolute;
+  top: 40px;
+  right: 50px;
+  height: 40px;
+  width: 40px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  color: white;
+}
+
+.buttonPrev, .buttonNext {
+  background: transparent;
+  border: none;
+  font-size: 24px;
+  cursor: pointer;
+  color: transparent; /* Set color to make the buttons visible */
+  z-index: 101;
+  position: absolute;
+  top: calc(50% + 215px); /* Adjust positioning to center vertically */
+  transform: translateY(-50%);
+}
+
+.buttonPrev {
+  left: 50px; /* Adjust as needed to position the button */
+}
+
+.buttonNext {
+  right: 50px; /* Adjust as needed to position the button */
+}
+
+.imagePopup {
+  position: relative;
+  width: 296px;  /* Set the width of the popup */
+  height: 429px; /* Set the height of the popup */
+  padding: 0;    /* Remove padding to match the image size */
+  background-color: white;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
+  border-radius: 10px;
+  z-index: 100;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.popupImage {
+  width: 140%;  /* Scale the image width by 140% */
+  height: 140%; /* Scale the image height by 140% */
+  object-fit: cover;
+  border-radius: 10px;
+  transform: translate(-20%, -20%); /* Keep the image centered in the popup */
+}
+
+.description {
+  position: relative;
+  font-family: 'inter', sans-serif;
+  font-size: 19px;
+  font-weight: bold;
+  letter-spacing: 1px;
+  top: 170px;
+  left: 10px;
+}
+
+.booktag {
+  position: relative;
+  font-size: 15px;
+  letter-spacing: 0.5px;
+  top: 30px;
+  left: 205px;
+  color: #B4B4B4;
+}
+
+.buttonaddbookdata {
+  position: relative;
+  top: 900px;
+}
+
+.addbookdata {
+  position: relative;
+  border: 3.5px solid #AB80E3;
+  border-radius: 60px;
+  color: #AB80E3;
+  padding: 10px 60px;
+  font-size: 19px;
+  font-weight: bold;
+  cursor: pointer;
+  letter-spacing: 1px;
+  z-index: 10;
+  text-decoration: none;
+  top: 42px;
+  margin-left: calc(50% - 140px);
+  margin-bottom: 250px;
+}
+
+.plusicon {
+  position: relative;
+  font-size: 34px;
+  color: #AB80E3;
+  margin-left: calc(50% + 105px);
+  bottom: 252px;
+  z-index: 11;
+}
+
+.buttonPrev1, .buttonNext1 {
+  background: transparent;
+  border: none;
+  font-size: 60px;  /* Adjust font size for height */
+  line-height: 1; /* Makes the buttons taller by controlling the line height */
+  font-weight: 400;  /* Make the characters thinner */
+  cursor: pointer;
+  color: black; /* Set the color */
+  z-index: 101;
+  position: absolute;
+  top: 50%; /* Center vertically */
+  transform: translateY(-50%) scaleX(0.35); /* Scale down horizontally to make it thinner */
+}
+
+.buttonPrev1 {
+  left: -50px; /* Adjust as needed to position the button */
+}
+
+.buttonNext1 {
+  right: -50px; /* Adjust as needed to position the button */
+}

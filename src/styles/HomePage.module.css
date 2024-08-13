@@ -1,8 +1,6 @@
-@import url('https://fonts.googleapis.com/css2?family=Karla:wght@500&display=swap');
-
 body {
-  overflow: hidden;
-  height: 100%;
+  overflow: hidden; /* Prevent body from scrolling */
+  height: 100vh;
   margin: 0;
 }
 
@@ -31,28 +29,26 @@ body {
 
 .Container {
   position: relative;
-  padding: 20px;
-  text-align: center;
   flex-grow: 1;
 }
 
 .Details {
+  position: absolute;
+  top: 125px;
+  left: 10px;
   font-size: 30px;
-  margin-top: 105px;
-  margin-left: -40%;
   letter-spacing: 3px;
   font-weight: 400;
   color: #444;
-  position: relative;
   z-index: 10;
+  visibility: visible;
 }
 
 .icontutorial {
-  position: inherit;
-  z-index: 20;
-  height: 100%;
-  margin-top: -125px;
-  margin-left: 88%;
+  position: fixed;
+  top: 55px;
+  right: 45px;
+  z-index: 30;
   cursor: pointer;
 }
 
@@ -71,63 +67,53 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  z-index: 50; /* Ensure it's above other elements */
+  z-index: 99; /* Ensure it's above other elements */
 }
 
-/* Keyframes for the slide-up animation */
 @keyframes slideUp {
   from {
-    transform: translateY(150%); /* Start from the bottom */
+    transform: translateY(100%);
     opacity: 0;
   }
   to {
-    transform: translateY(0); /* End at the original position */
+    transform: translateY(0);
     opacity: 1;
   }
 }
 
-/* Keyframes for the slide-down animation */
 @keyframes slideDown {
   from {
     transform: translateY(0);
     opacity: 1;
   }
   to {
-    transform: translateY(150%);
-    opacity: 1;
+    transform: translateY(100%);
+    opacity: 0;
   }
 }
 
 .popup {
-  position: relative; 
+  position: relative;
   text-align: center;
   max-width: 100%;
   max-height: 100%;
   overflow: auto;
-  z-index: 51;
-  background-color: rgba(255, 255, 255, 0); /* Ensure the background is set */
-  transform: translateY(100%); /* Initial position outside of the screen */
-  opacity: 0; /* Hidden at the start */
-  transition: transform 0.3s ease-out, opacity 0.3s ease-out;
+  transform: translateY(100%); /* Start out of view */
+  opacity: 0; /* Start hidden */
+  z-index: 100;
 }
 
-/* When the popup is opened, apply the slide-up animation */
 .popup.open {
-  animation: slideUp 0.4s ease-out forwards;
+  animation: slideUp 0.4s ease-out forwards; /* Apply the slide-up animation */
 }
 
-/* When closing, apply the slide-down animation */
 .popup.close {
-  animation: slideDown 0.4s ease-out forwards;
+  animation: slideDown 0.4s ease-in forwards; /* Apply the slide-down animation */
 }
 
 .popup img {
   width: 100%;
   height: auto;
-}
-
-.buttonContainer {
-  margin-top: 10px;
 }
 
 .buttonPrev {
@@ -190,16 +176,15 @@ body {
   position: absolute;
   background-color: #f4f4f4;
   margin-top: 0px;
-  margin-left: -40px;
   height: 155px;
-  width: 120%;
+  width: 100%;
   z-index: 1;
 }
 
 .func {
   position: fixed;
-  top: 0px; /* Set a common top value */
-  left: 0px;
+  top: 0px;
+  left: calc(10% - 40px);
   z-index: 32;
 }
 
@@ -217,7 +202,7 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  z-index: 100; /* Ensure it's above other elements */
+  z-index: 80;
   transition: transform 0.3s ease;
 }
 
@@ -231,3 +216,22 @@ body {
 .horizontal {
   transform: rotate(90deg);
 }
+
+.rectangleContainer {
+  position: relative;
+  width: 110%;
+  top: 220px;
+  left: -7px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start; /* Align rectangles to the left */
+  overflow-y: auto; /* Enable vertical scrolling */
+  height: calc(100vh - 220px); /* Adjust height based on the top positioning */
+}
+
+.rectangle {
+  width: 202px; /* Set width of the rectangle */
+  height: 377px;
+  background-color: #6B2DBC;
+}
+

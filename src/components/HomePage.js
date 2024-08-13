@@ -33,6 +33,7 @@ const HomePage = () => {
     setCurrentTutorial(prev => prev - 1);
   };
 
+
   const tutorials = [
     { id: 1, src: '/tutorials/tutorial1.svg', alt: 'Tutorial 1' },
     { id: 2, src: '/tutorials/tutorial2.svg', alt: 'Tutorial 2' },
@@ -63,6 +64,12 @@ const HomePage = () => {
     navigate('/addbook'); // Navigate to the /addbook page
   };
 
+    // Handle the click event on each rectangle
+  const handleRectangleClick = () => {
+    navigate('/book'); // Navigate to the /book page
+  };
+
+ 
   return (
     <div className={styles.pageContainer}>
       <Header />
@@ -92,7 +99,15 @@ const HomePage = () => {
             </div>
           </div>
         )}
-        {/* Add the "+" button */}
+        <div className={styles.rectangleContainer}>
+          {Array(20).fill(null).map((_, index) => (
+            <div
+              key={index}
+              className={styles.rectangle}
+              onClick={handleRectangleClick} // Add onClick event here
+            ></div>
+          ))}
+        </div>
         <div className={styles.addButton} onClick={handleAddBookClick}>
           <div className={styles.vertical}></div>
           <div className={styles.horizontal}></div>

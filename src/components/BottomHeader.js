@@ -8,32 +8,31 @@ const BottomHeader = () => {
   const [position, setPosition] = useState('home');
 
   useEffect(() => {
-    const storedPosition = localStorage.getItem('purplebuttonPosition');
-    if (storedPosition) {
-      setPosition(storedPosition);
-    } else {
-      switch (location.pathname) {
-        case '/search':
-          setPosition('search');  
-          break;
-        case '/sign-in':
-        case '/sign-up':
-        case '/sign':
-          setPosition('sign');
-          break;
-        case '/homepage':
-          setPosition('home');
-          break;
-        default:
-          setPosition('home');
-          break;
-      } 
+    switch (location.pathname) {
+      case '/search':
+        setPosition('search');  
+        break;
+      case '/sign-in':
+      case '/sign-up':
+      case '/sign':
+        setPosition('sign');
+        break;
+      case '/book':
+      case '/addbookdata':  // Handle both /book and /addbookdata paths
+        setPosition('book');
+        break;
+      case '/homepage':
+      default:
+        setPosition('home');
+        break;
     }
   }, [location.pathname]);
 
   const handleClick = (newPosition, path) => {
-    setPosition(newPosition);
-    localStorage.setItem('purplebuttonPosition', newPosition);
+    if (newPosition !== 'book') {
+      setPosition(newPosition);
+      localStorage.setItem('purplebuttonPosition', newPosition);
+    }
     setTimeout(() => {
       navigate(path);
     }, 500); // Adjust the delay as needed to match the animation duration
@@ -45,7 +44,7 @@ const BottomHeader = () => {
         src='/iconbottomheader/purplebutton.svg'
         alt='Purple Button'
         className={`${styles.purplebutton} ${
-          position === 'home' ? styles.moveToHome :
+          position === 'home' || position === 'book' ? styles.moveToHome :
           position === 'search' ? styles.moveToSearch :
           position === 'sign' ? styles.moveToSign : ''
         }`}
@@ -53,8 +52,20 @@ const BottomHeader = () => {
       <div className={styles.buttonWrapper}>
         <button className={styles.buttonhome} onClick={() => handleClick('home', '/homepage')}>hhh</button>
         <img 
-          src={position === 'home' ? '/iconbottomheader/homewhite.svg' : '/iconbottomheader/homeblack.svg'} 
-          alt={position === 'home' ? 'Home White' : 'Home Black'} 
+          src={
+            position === 'home' 
+              ? '/iconbottomheader/homewhite.svg' 
+              : position === 'book' 
+              ? '/iconbottomheader/bookwhite.svg' 
+              : '/iconbottomheader/homeblack.svg'
+          } 
+          alt={
+            position === 'home' 
+              ? 'Home White' 
+              : position === 'book' 
+              ? 'Book White' 
+              : 'Home Black'
+          } 
           className={styles.homewhite} 
         />
       </div>

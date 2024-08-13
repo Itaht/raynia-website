@@ -9,6 +9,8 @@ import SearchResult from './components/SearchResult';
 import HomePage from './components/HomePage';
 import Sign from './components/Sign';
 import AddBook from './components/AddBook';
+import Book from './components/Book';
+import AddBookData from './components/AddBookData';
 import './styles/App.css';
 
 const App = () => {
@@ -26,6 +28,8 @@ const App = () => {
             <Route path="/homepage" element={<HomePage />} />
             <Route path="/sign" element={<Sign />} />
             <Route path="/addbook" element={<AddBook />} />
+            <Route path="/book" element={<Book />} />
+            <Route path="/addbookdata" element={<AddBookData />} />
           </Routes>
         </main>
       </div>

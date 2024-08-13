@@ -1,0 +1,30 @@
+.buttonback {
+    position: absolute;
+    top: 60px;
+    left: 40px;
+    z-index: 20;
+  }
+  
+  .back {
+    display: inline-block;
+    width: 60px;
+    height: 40px;
+    z-index: 20;
+    color: transparent;
+  }
+  
+  .iconback {
+    width: 20%;
+    height: 50%;
+    object-fit: cover;
+  }
+  
+  .topic {
+    font-size: 24px;
+    font-weight: bold;
+    margin-top: 130px;
+    margin-bottom: 30px;
+    margin-left: calc(50% - 98px);
+    letter-spacing: 1px;
+    color: #6B2DBC;
+  }
