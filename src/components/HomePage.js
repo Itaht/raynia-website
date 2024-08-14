@@ -66,7 +66,7 @@ const HomePage = () => {
 
     // Handle the click event on each rectangle
   const handleRectangleClick = () => {
-    navigate('/book'); // Navigate to the /book page
+    navigate('/bookcontent'); // Navigate to the /book page
   };
 
  

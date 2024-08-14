@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import styles from '../styles/Book.module.css';
+import styles from '../styles/BookContent.module.css';
 import Header from './Header';
 import BottomHeader from './BottomHeader';
 
-const Book = () => {
+const BookContent = () => {
     const [showTutorialPopup, setShowTutorialPopup] = useState(false);
     const [isClosing, setIsClosing] = useState(false);  // For closing animation
     const [currentTutorial, setCurrentTutorial] = useState(1);
@@ -75,7 +75,7 @@ const Book = () => {
     const currentTutorialData = tutorials.find(tutorial => tutorial.id === currentTutorial);
 
     const handleAddDataClick = () => {
-        navigate('/addbookdata');
+        navigate('/addbookcontentdata');
     };
 
     return (
@@ -126,11 +126,11 @@ const Book = () => {
             <div className={styles.description}>รายละเอียดหนังสือ</div>
             <div className={styles.booktag}>book tags</div>
             <div className={styles.buttonaddbookdata} onClick={handleAddDataClick}>
-                <button type="addbookdata" className={styles.addbookdata}>เพิ่มข้อมูลหนังสือ</button>
+                <button type="addbookcontentdata" className={styles.addbookdata}>เพิ่มข้อมูลหนังสือ</button>
                 <div className={styles.plusicon}>+</div>
             </div>
         </div>
     );
 };
 
-export default Book;
+export default BookContent;

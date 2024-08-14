@@ -1,14 +1,14 @@
 import React from 'react';
-import styles from '../styles/AddBookData.module.css';
+import styles from '../styles/AddBookContentProblemData.module.css';
 import Header from './Header';
 import BottomHeader from './BottomHeader';
 
-const AddBookData = () => {
+const AddBookContentProblemData = () => {
   return (
     <div className={styles.welcome}>
       <Header />
       <div className={styles.buttonback}>
-        <a href="/book" className={styles.back}>
+        <a href="/bookcontent" className={styles.back}>
           <img src='/back.svg' alt='Back' className={styles.iconback} />
         </a>
       </div>
@@ -20,4 +20,4 @@ const AddBookData = () => {
   );
 };
 
-export default AddBookData;
+export default AddBookContentProblemData;

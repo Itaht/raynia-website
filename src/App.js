@@ -9,8 +9,10 @@ import SearchResult from './components/SearchResult';
 import HomePage from './components/HomePage';
 import Sign from './components/Sign';
 import AddBook from './components/AddBook';
-import Book from './components/Book';
-import AddBookData from './components/AddBookData';
+import BookContent from './components/BookContent';
+import AddBookContentData from './components/AddBookContentData';
+import AddBookProblemData from './components/AddBookProblemData';
+import AddBookContentProblemData from './components/AddBookContentProblemData';
 import './styles/App.css';
 
 const App = () => {
@@ -28,8 +30,10 @@ const App = () => {
             <Route path="/homepage" element={<HomePage />} />
             <Route path="/sign" element={<Sign />} />
             <Route path="/addbook" element={<AddBook />} />
-            <Route path="/book" element={<Book />} />
-            <Route path="/addbookdata" element={<AddBookData />} />
+            <Route path="/bookcontent" element={<BookContent />} />
+            <Route path="/addbookcontentdata" element={<AddBookContentData />} />
+            <Route path="/addbookproblemdata" element={<AddBookProblemData />} />
+            <Route path="/addbookcontentproblemdata" element={<AddBookContentProblemData />} />
           </Routes>
         </main>
       </div>
