@@ -10,6 +10,8 @@ import HomePage from './components/HomePage';
 import Sign from './components/Sign';
 import AddBook from './components/AddBook';
 import BookContent from './components/BookContent';
+import BookProblem from './components/BookProblem';
+import BookContentProblem from './components/BookContentProblem';
 import AddBookContentData from './components/AddBookContentData';
 import AddBookProblemData from './components/AddBookProblemData';
 import AddBookContentProblemData from './components/AddBookContentProblemData';
@@ -31,6 +33,8 @@ const App = () => {
             <Route path="/sign" element={<Sign />} />
             <Route path="/addbook" element={<AddBook />} />
             <Route path="/bookcontent" element={<BookContent />} />
+            <Route path="/bookproblem" element={<BookProblem />} />
+            <Route path="/bookcontentproblem" element={<BookContentProblem />} />
             <Route path="/addbookcontentdata" element={<AddBookContentData />} />
             <Route path="/addbookproblemdata" element={<AddBookProblemData />} />
             <Route path="/addbookcontentproblemdata" element={<AddBookContentProblemData />} />

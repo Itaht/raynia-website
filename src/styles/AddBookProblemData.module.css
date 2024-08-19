@@ -1,30 +1,264 @@
 .buttonback {
-    position: absolute;
-    top: 60px;
-    left: 40px;
-    z-index: 20;
-  }
-  
-  .back {
-    display: inline-block;
-    width: 60px;
-    height: 40px;
-    z-index: 20;
+  position: absolute;
+  top: 60px;
+  left: 40px;
+  z-index: 20;
+}
+
+.back {
+  display: inline-block;
+  width: 60px;
+  height: 40px;
+  z-index: 20;
+  color: transparent;
+}
+
+.iconback {
+  width: 20%;
+  height: 50%;
+  object-fit: cover;
+}
+
+.topic {
+  font-size: 24px;
+  font-weight: bold;
+  margin-top: 130px;
+  margin-bottom: 30px;
+  margin-left: calc(50% - 98px);
+  letter-spacing: 1px;
+  color: #6B2DBC;
+}
+
+.diversitySection {
+  margin-top: 20px;
+}
+
+.diversityHeading {
+  font-size: 18px;
+  letter-spacing: 1px;
+  color: black;
+  margin-top: 40px;
+  margin-bottom: 30px;
+  text-align: center;
+}
+
+.radioRow {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.radioLabel {
+  flex: 0 0 160px;
+  font-size: 18px;
+  color: black;
+}
+
+.radioGroup {
+  display: flex;
+  gap: 30px;
+}
+
+.radioOption2 {
+  position: relative;
+  display: flex;
+  align-items: center;
+  font-family: 'Karla', sans-serif;
+  font-size: 16px;
+  letter-spacing: 1px;
+  color: #000000;
+  left: 20px;
+}
+
+.radioOption2 input[type="radio"] {
+  appearance: none;
+  -webkit-appearance: none;
+  width: 25px;
+  height: 25px;
+  border: 3px solid #AB80E3;
+  border-radius: 50%;
+  cursor: pointer;
+  margin-right: 5px;
+  position: relative;
+}
+
+.radioOption2 input[type="radio"]:checked {
+  background-color: #AB80E3;
+  border: 0px solid #AB80E3;
+}
+
+.radioOption2 input[type="radio"]:checked::after {
+  content: '';
+  position: absolute;
+  left: 7.5px;
+  top: 7.5px;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+}
+
+.radioOption3 {
+  position: relative;
+  display: flex;
+  align-items: center;
+  font-family: 'Karla', sans-serif;
+  font-size: 16px;
+  color: #000000;
+  letter-spacing: 1px;
+  left: 50px;
+}
+
+.radioOption3 input[type="radio"] {
+  appearance: none;
+  -webkit-appearance: none;
+  width: 25px;
+  height: 25px;
+  border: 3px solid #AB80E3;
+  border-radius: 50%;
+  cursor: pointer;
+  margin-right: 45px;
+  position: relative;
+}
+
+.radioOption3 input[type="radio"]:checked {
+  background-color: #AB80E3;
+  border: 0px solid #AB80E3;
+}
+
+.radioOption3 input[type="radio"]:checked::after {
+  content: '';
+  position: absolute;
+  left: 7.5px;
+  top: 7.5px;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+}
+
+.type {
+  position: relative;
+  font-size: 20px;
+  color: #AB80E3;
+  left: calc(50% - 106px);
+  letter-spacing: 1px;
+}
+
+/* Center heading for "ความยาวต่อหัวข้อ" */
+.headingCenter {
+  font-size: 18px;
+  letter-spacing: 1px;
+  color: black;
+  margin-top: 20px;
+  margin-bottom: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+/* Container for the radio buttons */
+.radioContainer {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 23px;
+}
+
+/* Individual radio button and its label */
+.radioButton {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 10px 8px;
+}
+
+.radioButton label {
+  margin-top: 5px;
+  font-size: 16px;
+  color: #000;
+}
+
+.radioButton input[type="radio"] {
+  appearance: none;
+  -webkit-appearance: none;
+  width: 35px;
+  height: 35px;
+  border: 3px solid #AB80E3;
+  border-radius: 50%;
+  cursor: pointer;
+  position: relative;
+}
+
+.radioButton input[type="radio"]:checked {
+  background-color: #AB80E3;
+  border: 3px solid #AB80E3;
+}
+
+.radioButton input[type="radio"]:checked::after {
+  content: '';
+  position: absolute;
+  left: 10px;
+  top: 10px;
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+}
+
+/* Additional sections for the new radio topics */
+.radioTopicContainer {
+  margin-bottom: 20px;
+}
+
+/* Additional sections for the new radio topics */
+.radioTopicContainer1 {
+  position: relative;
+  left: calc(50% - 160px);
+  margin-bottom: 20px;
+}
+
+
+.radioTopicContainer .headingCenter {
+  margin-top: 30px;
+}
+
+.radioTopicContainer .radioContainer {
+  margin-bottom: 15px;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  overflow-y: auto;
+}
+
+.contentContainer {
+  padding: 20px;
+  flex-grow: 1;
+  overflow-y: auto;
+  max-height: calc(100vh - 130px); /* Adjust this value if needed to fit your header and bottom header */
+}
+
+.submit {
+  position: relative;
+  background-color: #AB80E3;
+  border: 3.5px solid #AB80E3;
+  border-radius: 60px;
+  color: #f4f4f4;
+  padding: 8px 50px;
+  font-size: 22px;
+  cursor: pointer;
+  letter-spacing: 2px;
+  font-weight: bold;
+  z-index: 10;
+  position: relative;
+  text-decoration: none; /* Remove underline */
+  top: 40px;
+  margin-left: calc(50% - 95px);
+}
+
+.space {
+    position: relative;
+    font-size: 50px;
     color: transparent;
-  }
-  
-  .iconback {
-    width: 20%;
-    height: 50%;
-    object-fit: cover;
-  }
-  
-  .topic {
-    font-size: 24px;
-    font-weight: bold;
-    margin-top: 130px;
-    margin-bottom: 30px;
-    margin-left: calc(50% - 98px);
-    letter-spacing: 1px;
-    color: #6B2DBC;
-  }
+    margin-top: 130px;  
+}

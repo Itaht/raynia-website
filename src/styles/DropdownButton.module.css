@@ -83,10 +83,6 @@
   margin-left: -6px;
 }
 
-.dropdownMenu li:hover {
-  background-color: #ffffffbc;
-}
-
 .notSelectIcon, .selectIcon {
   width: 20px;
   height: auto;

@@ -17,7 +17,7 @@ body {
   position: fixed; /* Fixes the header to the top */
   top: 0; /* Aligns it to the top edge */
   left: 50%;
-  transform: translateX(-50%); /* Centers it horizontally */
+  transform: translateX(-50.3%); /* Centers it horizontally */
   background-color: #EEEEEE;
   width: 100%; /* Ensures the header spans the full width */
   padding: 20px 0; /* Adds some padding */

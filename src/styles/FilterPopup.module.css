@@ -201,6 +201,7 @@
 
 .graphContent img, .graphProblem img {
   max-width: 100%;
+  margin-right: 10px;
   height: auto;
 }
 
@@ -316,7 +317,7 @@
 }
 
 .bluegraph {
-  top: -123px;
+  top: -122px;
   left: 99.2px;
   transform-origin: bottom left;
 }

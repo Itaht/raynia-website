@@ -55,8 +55,9 @@ body {
 }
 
 .buttonconfirm {
+  position: absolute;
   margin-top: 90px; /* Adds some space above the button */
-  margin-left: calc(50% - 150px); /* Center align based on 300px width */
+  left: 45px; /* Center align based on 300px width */
 }
 
 .confirm {

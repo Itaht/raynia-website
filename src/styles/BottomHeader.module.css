@@ -83,18 +83,6 @@ body {
 .purplebutton {
   position: absolute;
   top: -5px;
-  left: 120px;
   transition: transform 0.5s ease-in-out;
-}
-
-.moveToHome {
-  transform: translateX(calc(-100% - 20px)); /* Adjust as needed for spacing */
-}
-
-.moveToSearch {
-  transform: translateX(54px); /* Adjust as needed for spacing */
-}
-
-.moveToSign {
-  transform: translateX(calc(100% + 120px)); /* Adjust as needed for spacing */
-}
+  left: -33px;
+} 

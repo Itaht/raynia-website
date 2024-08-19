@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import styles from '../styles/BookContent.module.css';
+import styles from '../styles/BookProblem.module.css';
 import Header from './Header';
 import BottomHeader from './BottomHeader';
 
-const BookContent = () => {
+const BookProblem = () => {
     const [showTutorialPopup, setShowTutorialPopup] = useState(false);
     const [isClosing, setIsClosing] = useState(false);  // For closing animation
     const [currentTutorial, setCurrentTutorial] = useState(1);
@@ -75,7 +75,7 @@ const BookContent = () => {
     const currentTutorialData = tutorials.find(tutorial => tutorial.id === currentTutorial);
 
     const handleAddDataClick = () => {
-        navigate('/addbookcontentdata');
+        navigate('/addbookproblemdata');
     };
 
     return (
@@ -120,28 +120,27 @@ const BookContent = () => {
                 </div>
             )}
             <div className={styles.details}>
-            <div className={styles.description}>รายละเอียดหนังสือ</div>
-            <div className={styles.contentCompleteness}>ความครบของเนื้อหา</div>
-            <div className={styles.contentdetail}>ความละเอียดของเนื้อหา</div>
-            <div className={styles.explanationstyle}>รูปแบบการอธิบาย</div>
-            <div className={styles.easyused}>ใช้งานง่าย</div>
-            <div className={styles.comfortableread}>อ่านสบายตา</div>
+            <div className={styles.varietyOfQuestions}>ความหลากหลายของโจทย์</div>
+            <div className={styles.answer}>เฉลย</div>
+            <div className={styles.difficultyOfQuestions}>ความยากของโจทย์</div>
+            <div className={styles.easyToUse}>ใช้งานง่าย</div>
+            <div className={styles.comfortableToRead}>อ่านสบายตา</div>
             </div>
             <div className={styles.move}>
                 <div className={styles.bookImageContainer} onClick={handleImageClick}>
                     <img src="/book.svg" alt="book" className={styles.bookImage} />
                 </div>
-                <div className={styles.booktype}>หนังสือเนื้อหา</div>
+                <div className={styles.booktype}>หนังสือโจทย์</div>
                 <div className={styles.price}>ราคา:</div>
                 <div className={styles.level}>ระดับชั้น:</div>
                 <div className={styles.booktag}>book tags</div>
             </div>
             <div className={styles.buttonaddbookdata} onClick={handleAddDataClick}>
-                <button type="addbookcontentdata" className={styles.addbookdata}>เพิ่มข้อมูลหนังสือ</button>
+                <button type="addbookproblemdata" className={styles.addbookdata}>เพิ่มข้อมูลหนังสือ</button>
                 <div className={styles.plusicon}>+</div>
             </div>
         </div>
     );
 };
 
-export default BookContent;
+export default BookProblem;

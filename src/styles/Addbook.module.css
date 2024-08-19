@@ -59,6 +59,7 @@ body {
   top: -15px;
 }
 
+
 .formGroup label {
   flex: 0 0 120px;
   color: black;
@@ -531,7 +532,7 @@ body {
     position: relative;
     font-size: 50px;
     color: transparent;
-    margin-top: 130px;
+    margin-top: 180px;
 }
 
 .formgrouppaper {
@@ -851,6 +852,13 @@ outline: none;
 
 /* Additional sections for the new radio topics */
 .radioTopicContainer {
+  margin-bottom: 20px;
+}
+
+/* Additional sections for the new radio topics */
+.radioTopicContainer1 {
+  position: relative;
+  left: calc(50% - 160px);
   margin-bottom: 20px;
 }
 

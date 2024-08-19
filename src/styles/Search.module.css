@@ -116,3 +116,33 @@ body {
   left: 0px;
   z-index: 32;
 }
+
+.rectangleContainer {
+  position: relative;
+  width: 110%;
+  top: 150px;
+  left: -7px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start; /* Align rectangles to the left */
+  overflow-y: auto; /* Enable vertical scrolling */
+  height: calc(100vh - 220px); /* Adjust height based on the top positioning */
+}
+
+.rectangle {
+  width: 202px; /* Set width of the rectangle */
+  height: 377px;
+  background-color: #6B2DBC;
+}
+
+.rectangleBookContent {
+  background-color: #6B2DBC; /* Color para "bookcontent" */
+}
+
+.rectangleBookProblem {
+  background-color: #FF6347; /* Color para "bookproblem" */
+}
+
+.rectangleBookContentProblem {
+  background-color: #32CD32; /* Color para "bookcontentproblem" */
+}

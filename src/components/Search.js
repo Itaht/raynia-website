@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom'; // Import the useNavigate hook
 import styles from '../styles/Search.module.css';
 import Header from './Header';
 import BottomHeader from './BottomHeader';
@@ -8,6 +9,7 @@ import FilterPopUp from './FilterPopup';
 const Search = () => {
   const [query, setQuery] = useState('');
   const [showPopup, setShowPopup] = useState(false);
+  const navigate = useNavigate();
 
   const handleSearch = (e) => {
     e.preventDefault();
@@ -21,6 +23,24 @@ const Search = () => {
   const handleClearInput = () => {
     setQuery('');
   };
+
+   // Handle the click event on each rectangle
+   const handleRectangleClick = (index) => {
+    if (index % 3 === 0) {
+      navigate('/bookcontent');
+    } else if (index % 3 === 1) {
+      navigate('/bookproblem');
+    } else {
+      navigate('/bookcontentproblem');
+    }
+  };
+
+  const getRectangleClass = (index) => {
+    if (index % 3 === 0) return styles.rectangleBookContent;
+    if (index % 3 === 1) return styles.rectangleBookProblem;
+    return styles.rectangleBookContentProblem;
+  };
+
 
   return (
     <div className={styles.searchContainer}>
@@ -43,6 +63,15 @@ const Search = () => {
       <div className={styles.func}>
           <DropdownButton />
           <FilterPopUp />
+        </div>
+        <div className={styles.rectangleContainer}>
+          {Array(100).fill(null).map((_, index) => (
+            <div
+              key={index}
+              className={`${styles.rectangle} ${getRectangleClass(index)}`}
+              onClick={() => handleRectangleClick(index)} // Pass the index to determine which page to navigate to
+            ></div>
+          ))}
         </div>
       {showPopup && (
         <div className={styles.popup}>

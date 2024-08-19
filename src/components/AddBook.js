@@ -62,27 +62,35 @@ const AddBook = () => {
         newErrors[key] = 'This field is required';
       }
     });
+    
+    // Log the values for debugging
+    console.log('Form Values:', formValues);
+    console.log('Errors:', newErrors);
+  
     setErrors(newErrors);
     setFormValid(Object.keys(newErrors).length === 0);
   };
+  
 
   const handleSubmit = (event) => {
     event.preventDefault();
+    validateForm(); // Revalidate the form on submit
     if (!formValid) {
       alert('Please complete all fields correctly.');
       return;
     }
-
+  
     const formData = {
       ...formValues,
       fileName: fileName,
       bookType: selectedType,
       binding: Array.from(event.target.binding).filter(input => input.checked).map(input => input.value),
     };
-
+  
     console.log('Form Data:', formData);
     navigate('/homepage');
   };
+  
 
   return (
     <div className={styles.pageContainer}>
@@ -100,30 +108,54 @@ const AddBook = () => {
             <div className={styles.bookBox}>
               <div className={styles.formGroup}>
                 <label htmlFor="bookName">ชื่อหนังสือ:</label>
-                <input type="text" id="bookName" name="bookName" />
+                <input
+  type="text"
+  id="bookName"
+  name="bookName"
+  value={formValues.bookName}
+  onChange={handleInputChange}
+/>
+
               </div>
               <div className={styles.formGroup}>
                 <label htmlFor="author">ชื่อผู้แต่ง:</label>
-                <input type="text" id="author" name="author" />
+                <input
+  type="text"
+  id="author"
+  name="author"
+  value={formValues.author}
+  onChange={handleInputChange}
+/>
+
               </div>
               <div className={styles.formGroup}>
                 <label htmlFor="price">ราคา:</label>
                 <input
-                  type="number"
-                  id="price"
-                  name="price"
-                  min="0"
-                  step="0.01"
-                  onKeyDown={(e) => {
-                    if (!/[\d.-]/.test(e.key) && e.key !== "Backspace") {
-                      e.preventDefault();
-                    }
-                  }}
-                />
+  type="number"
+  id="price"
+  name="price"
+  value={formValues.price}
+  min="0"
+  step="0.01"
+  onChange={handleInputChange}
+  onKeyDown={(e) => {
+    if (!/[\d.-]/.test(e.key) && e.key !== "Backspace") {
+      e.preventDefault();
+    }
+  }}
+/>
+
               </div>
               <div className={styles.formGroup}>
                 <label htmlFor="subject">วิชา:</label>
-                <input type="text" id="subject" name="subject" />
+                <input
+  type="text"
+  id="subject"
+  name="subject"
+  value={formValues.subject}
+  onChange={handleInputChange}
+/>
+
               </div>
               <div className={styles.formGroup}>
                 <label>ช่วงระดับชั้น:</label>
@@ -131,40 +163,52 @@ const AddBook = () => {
               <div className={styles.formGroup1}>
                 <label htmlFor="minLevel">min:</label>
                 <input
-                  type="text"
-                  id="minLevel"
-                  name="minLevel"
-                  placeholder="ม.1 ถึง ม.6"
-                  pattern="ม.[1-6]"
-                  className={styles.smallInput}
-                />
-                <input
-                  type="text"
-                  id="minLevel2"
-                  name="minLevel2"
-                  placeholder="เทอม 1 - 2"
-                  pattern="เทอม [1-2]"
-                  className={styles.smallInput}
-                />
+  type="text"
+  id="minLevel"
+  name="minLevel"
+  value={formValues.minLevel}
+  placeholder="ม.1 ถึง ม.6"
+  pattern="ม.[1-6]"
+  className={styles.smallInput}
+  onChange={handleInputChange}
+/>
+
+<input
+  type="text"
+  id="minLevel2"
+  name="minLevel2"
+  value={formValues.minLevel2}
+  placeholder="เทอม 1 - 2"
+  pattern="เทอม [1-2]"
+  className={styles.smallInput}
+  onChange={handleInputChange}
+/>
+
               </div>
               <div className={styles.formGroup1}>
                 <label htmlFor="maxLevel">max:</label>
                 <input
-                  type="text"
-                  id="maxLevel"
-                  name="maxLevel"
-                  placeholder="ม.1 ถึง ม.6"
-                  pattern="ม.[1-6]"
-                  className={styles.smallInput}
-                />
-                <input
-                  type="text"
-                  id="maxLevel2"
-                  name="maxLevel2"
-                  placeholder="เทอม 1 - 2"
-                  pattern="เทอม [1-2]"
-                  className={styles.smallInput}
-                />
+  type="text"
+  id="maxLevel"
+  name="maxLevel"
+  value={formValues.maxLevel}
+  placeholder="ม.1 ถึง ม.6"
+  pattern="ม.[1-6]"
+  className={styles.smallInput}
+  onChange={handleInputChange}
+/>
+
+<input
+  type="text"
+  id="maxLevel2"
+  name="maxLevel2"
+  value={formValues.maxLevel2}
+  placeholder="เทอม 1 - 2"
+  pattern="เทอม [1-2]"
+  className={styles.smallInput}
+  onChange={handleInputChange}
+/>
+
               </div>
               <div className={styles.formGroup2}>
                 <label htmlFor="bookCover">ปกติหนังสือ:</label>
@@ -175,7 +219,14 @@ const AddBook = () => {
               </div>
               <div className={styles.formGroup}>
                 <label htmlFor="publisher">ชื่อสำนักพิมพ์:</label>
-                <input type="text" id="publisher" name="publisher" />
+                <input
+  type="text"
+  id="publisher"
+  name="publisher"
+  value={formValues.publisher}
+  onChange={handleInputChange}
+/>
+
               </div>
               <div className={styles.levelSection}>
                 <div className={styles.type}>ประเภทหนังสือ:</div>
@@ -223,7 +274,15 @@ const AddBook = () => {
                     <div className={styles.contentInfo}>กรอกข้อมูลหนังสือเนื้อหา</div>
                     <div className={styles.formGroup9}>
                       <label htmlFor="contentCompleteness">ความครบของเนื้อหา:</label>
-                      <input type="text" id="contentCompleteness" name="contentCompleteness" placeholder="กรอกเลข 0 - 10"/>
+                      <input
+  type="text"
+  id="contentCompleteness"
+  name="contentCompleteness"
+  value={formValues.contentCompleteness}
+  placeholder="กรอกเลข 0 - 10"
+  onChange={handleInputChange}
+/>
+
                     </div>
                   {/* ความยาวต่อหัวข้อ Section */}
                   <div className={styles.radioTopicContainer}>
@@ -357,21 +416,39 @@ const AddBook = () => {
                   </div>
                   </div>
                   <div className={styles.explanationFormGroup}>
-                    <div className={styles.formGroup10}>
-                      <label htmlFor="textPercentage">Text:</label>
-                      <input type="text" id="textPercentage" name="textPercentage"/>
-                      <div className={styles.percentLabel}>%</div>
-                    </div>
-                    <div className={styles.formGroup10}>
-                      <label htmlFor="diagramPercentage">Diagram:</label>
-                      <input type="text" id="diagramPercentage" name="diagramPercentage"/>
-                      <div className={styles.percentLabel}>%</div>
-                    </div>
-                    <div className={styles.formGroup10}>
-                      <label htmlFor="picturePercentage">Picture:</label>
-                      <input type="text" id="picturePercentage" name="picturePercentage"/>
-                      <div className={styles.percentLabel}>%</div>
-                    </div>
+                  <div className={styles.formGroup10}>
+  <label htmlFor="textPercentage">Text:</label>
+  <input
+    type="text"
+    id="textPercentage"
+    name="textPercentage"
+    value={formValues.textPercentage}  // Bind value to formValues
+    onChange={handleInputChange}  // Update state on input
+  />
+  <div className={styles.percentLabel}>%</div>
+</div>
+<div className={styles.formGroup10}>
+  <label htmlFor="diagramPercentage">Diagram:</label>
+  <input
+    type="text"
+    id="diagramPercentage"
+    name="diagramPercentage"
+    value={formValues.diagramPercentage}  // Bind value to formValues
+    onChange={handleInputChange}  // Update state on input
+  />
+  <div className={styles.percentLabel}>%</div>
+</div>
+<div className={styles.formGroup10}>
+  <label htmlFor="picturePercentage">Picture:</label>
+  <input
+    type="text"
+    id="picturePercentage"
+    name="picturePercentage"
+    value={formValues.picturePercentage}  // Bind value to formValues
+    onChange={handleInputChange}  // Update state on input
+  />
+  <div className={styles.percentLabel}>%</div>
+</div>
                   </div>
                 </div>
               )}
@@ -380,7 +457,7 @@ const AddBook = () => {
                     <div className={styles.contentInfo}>กรอกข้อมูลหนังสือโจทย์</div>
                     <div className={styles.diversitySection}>
                       <div className={styles.diversityHeading}>ความหลากหลายของโจทย์</div>
-                      <div className={styles.radioTopicContainer}>
+                      <div className={styles.radioTopicContainer1}>
                         <div className={styles.radioRow}>
                           <label className={styles.radioLabel}>โจทย์วิเคราะห์:</label>
                           <div className={styles.radioGroup}>
@@ -422,7 +499,7 @@ const AddBook = () => {
                       </div>
                     </div>
                     <div className={styles.diversityHeading}>เฉลย</div>
-                    <div className={styles.radioTopicContainer}>
+                    <div className={styles.radioTopicContainer1}>
                       <div className={styles.radioRow}>
                         <div className={styles.radioOption3}>
                           <input type="radio" name="explanation" value="อธิบายทุกตัวเลือก" />
@@ -572,7 +649,15 @@ const AddBook = () => {
                     <div className={styles.contentInfo}>กรอกข้อมูลหนังสือเนื้อหา - โจทย์</div>
                     <div className={styles.formGroup9}>
                       <label htmlFor="contentCompleteness">ความครบของเนื้อหา:</label>
-                      <input type="text" id="contentCompleteness" name="contentCompleteness" placeholder="กรอกเลข 0 - 10"/>
+                      <input
+  type="text"
+  id="contentCompleteness"
+  name="contentCompleteness"
+  value={formValues.contentCompleteness}
+  placeholder="กรอกเลข 0 - 10"
+  onChange={handleInputChange}
+/>
+
                     </div>
                     <div className={styles.radioTopicContainer}>
                       <div className={styles.headingCenter}>ความยาวต่อหัวข้อ</div>
@@ -705,21 +790,41 @@ const AddBook = () => {
                   </div>
                   </div>
                   <div className={styles.explanationFormGroup}>
-                    <div className={styles.formGroup10}>
-                      <label htmlFor="textPercentage">Text:</label>
-                      <input type="text" id="textPercentage" name="textPercentage"/>
-                      <div className={styles.percentLabel}>%</div>
-                    </div>
-                    <div className={styles.formGroup10}>
-                      <label htmlFor="diagramPercentage">Diagram:</label>
-                      <input type="text" id="diagramPercentage" name="diagramPercentage"/>
-                      <div className={styles.percentLabel}>%</div>
-                    </div>
-                    <div className={styles.formGroup10}>
-                      <label htmlFor="picturePercentage">Picture:</label>
-                      <input type="text" id="picturePercentage" name="picturePercentage"/>
-                      <div className={styles.percentLabel}>%</div>
-                    </div>
+                  <div className={styles.formGroup10}>
+  <label htmlFor="textPercentage">Text:</label>
+  <input
+    type="text"
+    id="textPercentage"
+    name="textPercentage"
+    value={formValues.textPercentage}  // Bind value to formValues
+    onChange={handleInputChange}  // Update state on input
+  />
+  <div className={styles.percentLabel}>%</div>
+</div>
+
+<div className={styles.formGroup10}>
+  <label htmlFor="diagramPercentage">Diagram:</label>
+  <input
+    type="text"
+    id="diagramPercentage"
+    name="diagramPercentage"
+    value={formValues.diagramPercentage}  // Bind value to formValues
+    onChange={handleInputChange}  // Update state on input
+  />
+  <div className={styles.percentLabel}>%</div>
+</div>
+
+<div className={styles.formGroup10}>
+  <label htmlFor="picturePercentage">Picture:</label>
+  <input
+    type="text"
+    id="picturePercentage"
+    name="picturePercentage"
+    value={formValues.picturePercentage}  // Bind value to formValues
+    onChange={handleInputChange}  // Update state on input
+  />
+  <div className={styles.percentLabel}>%</div>
+</div>
                   </div>
                   <div className={styles.diversitySection}>
                     <div className={styles.diversityHeading}>ความหลากหลายของโจทย์</div>
@@ -947,38 +1052,42 @@ const AddBook = () => {
                 </div>
               </div>
               <div className={styles.formGroup4}>
-                <label htmlFor="weight">น้ำหนัก:</label>
-                <input
-                  type="number"
-                  id="weight"
-                  name="weight"
-                  min="0"
-                  step="0.01"
-                  onKeyDown={(e) => {
-                    if (!/[\d.-]/.test(e.key) && e.key !== "Backspace") {
-                      e.preventDefault();
-                    }
-                  }}
-                />
-                <div className={styles.kg}>kg.</div>
-              </div>
+  <label htmlFor="weight">น้ำหนัก:</label>
+  <input
+    type="number"
+    id="weight"
+    name="weight"
+    value={formValues.weight}  // Bind value to formValues
+    onChange={handleInputChange}  // Update state on input
+    min="0"
+    step="0.01"
+    onKeyDown={(e) => {
+      if (!/[\d.-]/.test(e.key) && e.key !== "Backspace") {
+        e.preventDefault();
+      }
+    }}
+  />
+  <div className={styles.kg}>kg.</div>
+</div>
 
-              <div className={styles.formGroup4}>
-                <label htmlFor="thick">ความหนา:</label>
-                <input
-                  type="number"
-                  id="thick"
-                  name="thick"
-                  min="0"
-                  step="0.01"
-                  onKeyDown={(e) => {
-                    if (!/[\d.-]/.test(e.key) && e.key !== "Backspace") {
-                      e.preventDefault();
-                    }
-                  }}
-                />
-                <div className={styles.cm}>cm.</div>
-              </div>
+<div className={styles.formGroup4}>
+  <label htmlFor="thick">ความหนา:</label>
+  <input
+    type="number"
+    id="thick"
+    name="thick"
+    value={formValues.thick}  // Bind value to formValues
+    onChange={handleInputChange}  // Update state on input
+    min="0"
+    step="0.01"
+    onKeyDown={(e) => {
+      if (!/[\d.-]/.test(e.key) && e.key !== "Backspace") {
+        e.preventDefault();
+      }
+    }}
+  />
+  <div className={styles.cm}>cm.</div>
+</div>
 
               <div className={styles.formGroup5}>
                 <label>การเข้าเล่ม:</label>
@@ -999,36 +1108,42 @@ const AddBook = () => {
               <div className={styles.formGroup6}>
                 <label htmlFor="coverGram">แกรมของปก:</label>
                 <input
-                  type="number"
-                  id="coverGram"
-                  name="coverGram"
-                  min="0"
-                  max="300"
-                  className={styles.smallInput}
-                  onKeyDown={(e) => {
-                    if (!/[\d]/.test(e.key) && e.key !== "Backspace") {
-                      e.preventDefault();
-                    }
-                  }}
-                />
+  type="number"
+  id="coverGram"
+  name="coverGram"
+  value={formValues.coverGram}
+  min="0"
+  max="300"
+  className={styles.smallInput}
+  onChange={handleInputChange}
+  onKeyDown={(e) => {
+    if (!/[\d]/.test(e.key) && e.key !== "Backspace") {
+      e.preventDefault();
+    }
+  }}
+/>
+
                 <div className={styles.gramLabel}>gram</div>
               </div>
 
               <div className={styles.formGroup6}>
                 <label htmlFor="paperGram">แกรมของกระดาษ:</label>
                 <input
-                  type="number"
-                  id="paperGram"
-                  name="paperGram"
-                  min="0"
-                  max="300"
-                  className={styles.smallInput}
-                  onKeyDown={(e) => {
-                    if (!/[\d]/.test(e.key) && e.key !== "Backspace") {
-                      e.preventDefault();
-                    }
-                  }}
-                />
+  type="number"
+  id="paperGram"
+  name="paperGram"
+  value={formValues.paperGram}
+  min="0"
+  max="300"
+  className={styles.smallInput}
+  onChange={handleInputChange}
+  onKeyDown={(e) => {
+    if (!/[\d]/.test(e.key) && e.key !== "Backspace") {
+      e.preventDefault();
+    }
+  }}
+/>
+
                 <div className={styles.gramLabel}>gram</div>
               </div>
 
@@ -1051,25 +1166,35 @@ const AddBook = () => {
                 <div className={styles.fontSizeContainer}>
                   <label htmlFor="fontSize">font size:</label>
                   <input
-                    type="number"
-                    id="fontSize"
-                    name="fontSize"
-                    min="8"
-                    max="72"
-                    className={styles.smallInput}
-                    onKeyDown={(e) => {
-                      if (!/[\d]/.test(e.key) && e.key !== "Backspace") {
-                        e.preventDefault();
-                      }
-                    }}
-                  />
+  type="number"
+  id="fontSize"
+  name="fontSize"
+  value={formValues.fontSize}
+  min="8"
+  max="72"
+  className={styles.smallInput}
+  onChange={handleInputChange}
+  onKeyDown={(e) => {
+    if (!/[\d]/.test(e.key) && e.key !== "Backspace") {
+      e.preventDefault();
+    }
+  }}
+/>
+
                   <div className={styles.pxLabel}>px.</div>
                 </div>
               </div>
 
               <div className={styles.formGroup8}>
                 <label htmlFor="bookDetails">รายละเอียดหนังสือ:</label>
-                <textarea id="bookDetails" name="bookDetails" className={styles.largeInput}></textarea>
+                <textarea
+  id="bookDetails"
+  name="bookDetails"
+  value={formValues.bookDetails}
+  onChange={handleInputChange}
+  className={styles.largeInput}
+/>
+
               </div>
 
               <div className={styles.buttonconfirm}>

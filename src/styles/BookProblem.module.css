@@ -295,34 +295,34 @@ body {
   right: 20px;
 }
 
-.contentCompleteness {
+.varietyOfQuestions {
   position: absolute;
   font-family: 'inter', sans-serif;
   font-size: 18px;
   font-weight: bold;
   letter-spacing: 1px;
   top: 640px;
-  left: calc(50% - 85px);
+  left: calc(50% - 110px);
 }
-.contentdetail {
+.answer {
   position: absolute;
   font-family: 'inter', sans-serif;
   font-size: 18px;
   font-weight: bold;
   letter-spacing: 1px;
   top: 740px;
-  left: calc(50% - 100px);
+  left: calc(50% - 20px);
 }
-.explanationstyle {
+.difficultyOfQuestions {
   position: absolute;
   font-family: 'inter', sans-serif;
   font-size: 18px;
   font-weight: bold;
   letter-spacing: 1px;
   top: 840px;
-  left: calc(50% - 75px);
+  left: calc(50% - 85px);
 }
-.easyused {
+.easyToUse {
   position: absolute;
   font-family: 'inter', sans-serif;
   font-size: 18px;
@@ -331,7 +331,7 @@ body {
   top: 940px;
   left: calc(50% - 45px);
 }
-.comfortableread {
+.comfortableToRead {
   position: absolute;
   font-family: 'inter', sans-serif;
   font-size: 18px;
@@ -345,4 +345,10 @@ body {
   padding: 20px; /* Añade padding para el contenido interno */
   position: relative; /* Asegúrate de que la posición sea relativa o estática */
   top: -10px;
+}
+
+.radioOption3 input[type="radio"] + label {
+  font-size: 18px !important; /* Directly target the labels after the radio inputs */
+  font-family: 'Karla', sans-serif;
+  color: #333;
 }
