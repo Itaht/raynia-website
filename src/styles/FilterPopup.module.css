@@ -83,10 +83,18 @@
 
 .scrollableContent {
   flex: 1; 
-  overflow-y: auto;
+  overflow-y: scroll; /* Allow scrolling */
+  -ms-overflow-style: none;  /* Internet Explorer 10+ */
+  scrollbar-width: none;  /* Firefox */
+  -webkit-overflow-scrolling: touch; /* Enable smooth scrolling on iOS */
   padding-right: 10px;
   margin-top: 60px; 
   margin-bottom: 100px;
+}
+
+/* Hide scrollbar for Chrome, Safari and Opera */
+.scrollableContent::-webkit-scrollbar {
+  display: none;
 }
 
 .subjectSection, .typeSection, .levelSection {
@@ -113,7 +121,7 @@
   position: relative;
   display: flex;
   flex-direction: column;
-  margin-left: 20px;
+  margin-left: 0px;
 }
 
 .column {
@@ -199,11 +207,6 @@
   margin-bottom: -70px;
 }
 
-.graphContent img, .graphProblem img {
-  max-width: 100%;
-  margin-right: 10px;
-  height: auto;
-}
 
 .radioGrid {
   display: grid;
@@ -305,44 +308,97 @@
 }
 
 .bluegraph, .greengraph, .yellowgraph, .redgraph {
-  position: relative;
-  opacity: 1;
-  transform: scale(0.88);
+  position: absolute;
+  transform: scale(0.88) translate(-2px, -2px); /* Slight translation for the effect */
   transition: transform 0.5s ease-out, opacity 0.5s ease-out, filter 0.5s ease-out;
   cursor: pointer;
-  position: absolute;
   width: 90px;
   height: 90px;
   z-index: 0;
 }
 
 .bluegraph {
-  top: -122px;
-  left: 99.2px;
+  top: -123.5px;
+  left: 103px;
   transform-origin: bottom left;
 }
 
 .greengraph {
-  top: -50px;
-  left: 5.8px;
+  top: -47px;
+  left: 6.4px;
   transform-origin: top right;
 }
 
 .yellowgraph {
-  top: -162.5px;
+  top: -163px;
   left: 6.4px;
   transform-origin: bottom right;
 }
 
 .redgraph {
-  top: -90px;
-  left: 99.2px;
+  position: fixed;
+  top: -87px;
+  left: 103px;
   transform-origin: top left;
+}
+
+
+.graphcontainer {
+  position: relative;
+  width: 200px;  /* Adjust the size of the container */
+  height: 200px;
+  margin: 50px 0px;
+}
+
+.verticalline {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 3px;
+  height: 100%;
+  background-color: black;
+  z-index: 10;
+}
+
+.horizontalline {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  transform: translateY(-50%);
+  width: 100%;
+  height: 3px;
+  background-color: black;
+  z-index: 10;
+}
+
+.labeltop {
+  position: absolute;
+  top: -30px; /* Adjust to position the label above the vertical line */
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 16px;
+  width: 115px;
+}
+.labeltop1 {
+  position: absolute;
+  top: -30px; /* Adjust to position the label above the vertical line */
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 16px;
+}
+
+.labelright {
+  position: absolute;
+  top: 50%;
+  right: -80px; /* Adjust to position the label to the right of the horizontal line */
+  transform: translateY(-50%);
+  font-size: 16px;
 }
 
 .visible {
   opacity: 1;
-  transform: scale(1);
+  transform: scale(0.98) translate(-2px, -2px); /* Add translation in opposite direction for slight offset */
   z-index: 1;
 }
 

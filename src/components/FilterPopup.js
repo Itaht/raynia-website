@@ -123,7 +123,7 @@ const FilterPopup = () => {
         
         <div className={styles.scrollableContent}>
           <div className={styles.subjectSection}>
-            <h3>วิชา: <span className={styles.redText}>***(ปิดปรับปรุง)</span></h3>
+            <h3>วิชา: <span className={styles.redText}></span></h3>
             <div className={styles.checkboxContainer}>
               <div className={styles.column}>
                 <label>
@@ -329,7 +329,7 @@ const FilterPopup = () => {
           </div>
 
           <div className={styles.typeSection}>
-            <h3>ประเภทหนังสือ: <span className={styles.redText}>***(ปิดปรับปรุง)</span></h3>
+            <h3>ประเภทหนังสือ: <span className={styles.redText}></span></h3>
             <div className={styles.checkboxContainer}>
               <div className={styles.column}>
                 <label>
@@ -338,9 +338,14 @@ const FilterPopup = () => {
                     checked={showGraphContent}
                     onChange={handleGraphContentToggle}
                   /> เนื้อหา
-                </label>
+                </label>  
                 <div className={`${styles.graphContent} ${showGraphContent ? styles.show : ''}`}>
-                  <div><img src="/graph/graphcontent.svg" alt="Graph Content" /></div>
+                <div class={styles.graphcontainer}>
+                  <div class={styles.verticalline}></div>
+                  <div class={styles.horizontalline}></div>
+                  <div class={styles.labeltop1}>ความละเอียด</div>
+                  <div class={styles.labelright}>ความครบ</div>
+                </div>
                   <div className={`${styles.bluegraph} ${visibleGraphContent === 'blue' ? styles.visible : visibleGraphContent ? styles.dimmed : ''}`} onClick={() => handleGraphContentClick('blue')}>
                     <img src="/graph/bluegraph.svg" alt="Blue Graph" />
                   </div>
@@ -364,7 +369,12 @@ const FilterPopup = () => {
                   /> โจทย์
                 </label>
                 <div className={`${styles.graphProblem} ${showGraphProblem ? styles.show : ''}`}>
-                  <div><img src="/graph/graphproblem.svg" alt="Graph Problem" /></div>
+                <div class={styles.graphcontainer}>
+                  <div class={styles.verticalline}></div>
+                  <div class={styles.horizontalline}></div>
+                  <div class={styles.labeltop}>ความหลากหลาย</div>
+                  <div class={styles.labelright}>ความยาก</div>
+                </div>
                   <div className={`${styles.bluegraph} ${visibleGraphProblem === 'blue' ? styles.visible : visibleGraphProblem ? styles.dimmed : ''}`} onClick={() => handleGraphProblemClick('blue')}>
                     <img src="/graph/bluegraph.svg" alt="Blue Graph" />
                   </div>

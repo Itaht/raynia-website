@@ -1,15 +1,246 @@
-@import url('https://fonts.googleapis.com/css2?family=Karla:wght@500&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@500&display=swap');
-
 body {
-  overflow: hidden;
-  height: 100%;
+  overflow: hidden; /* Prevent body from scrolling */
+  height: 100vh;
   margin: 0;
+}
+
+.header {
+  font-size: 52px;
   font-family: 'Karla', sans-serif;
+  font-weight: 100;
+  color: #6B2DBC;
+  letter-spacing: 4px;
+  z-index: 20;
+  position: fixed;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: #F9F9F9;
+  width: 100%;
+  padding: 20px 0;
+  text-align: center;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.logo {
+  font-size: 24px;
+  margin-top: 35px;
+}
+
+.Container {
+  position: relative;
+  flex-grow: 1;
+}
+
+.Details {
+  position: absolute;
+  top: 125px;
+  left: 10px;
+  font-size: 30px;
+  letter-spacing: 3px;
+  font-weight: 400;
+  color: #444;
+  z-index: 10;
+  visibility: visible;
+}
+
+.icontutorial {
+  position: fixed;
+  top: 55px;
+  right: 45px;
+  z-index: 30;
+  cursor: pointer;
+}
+
+.icontutorial img {
+  width: 30px;
+  height: auto;
+}
+
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(198, 198, 198, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 99; /* Ensure it's above other elements */
+}
+
+@keyframes slideUp {
+  from {
+    transform: translateY(100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes slideDown {
+  from {
+    transform: translateY(0);
+    opacity: 1;
+  }
+  to {
+    transform: translateY(100%);
+    opacity: 0;
+  }
+}
+
+.popup {
+  position: relative;
+  text-align: center;
+  max-width: 100%;
+  max-height: 100%;
+  overflow: auto;
+  transform: translateY(100%); /* Start out of view */
+  opacity: 0; /* Start hidden */
+  z-index: 100;
+}
+
+.popup.open {
+  animation: slideUp 0.4s ease-out forwards; /* Apply the slide-up animation */
+}
+
+.popup.close {
+  animation: slideDown 0.4s ease-in forwards; /* Apply the slide-down animation */
+}
+
+.popup img {
+  width: 100%;
+  height: auto;
+}
+
+.buttonPrev {
+  position: absolute;
+  top: 85%;
+  left: 45px;
+  transform: translateY(-50%);
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  color: white;
+  height: 40px;
+  width: 40px;
+}
+
+.buttonNext {
+  position: absolute;
+  top: 85%;
+  right: 45px;
+  transform: translateY(-50%);
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  color: white;
+  height: 40px;
+  width: 40px;
+}
+
+.buttonClose {
+  position: absolute;
+  top: 6%;
+  right: 45px;
+  height: 40px;
+  width: 40px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  color: white;
+}
+
+.popup button {
+  margin: 5px;
+  padding: 5px 10px;
+  background-color: transparent;
+  color: white;
+  border: none;
+  cursor: pointer;
+}
+
+.popup button:hover {
+  background-color: rgba(0, 0, 0, 0.1);
+}
+
+.popup button:disabled {
+  background-color: transparent;
+  cursor: not-allowed;
+}
+
+.bg {
+  position: absolute;
+  background-color: #f4f4f4;
+  margin-top: 0px;
+  height: 155px;
+  width: 100%;
+  z-index: 1;
+}
+
+.addButton {
+  position: fixed;
+  bottom: 150px;
+  right: 20px;
+  width: 80px;
+  height: 80px;
+  background-color: #ab80e3c7;
+  color: white;
+  border-radius: 50%;
+  cursor: pointer;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 80;
+  transition: transform 0.3s ease;
+}
+
+.vertical, .horizontal {
+  position: absolute;
+  width: 3px;
+  height: 35px;
+  background-color: white;
+}
+
+.horizontal {
+  transform: rotate(90deg);
+}
+
+.rectangleContainer {
+  position: relative;
+  width: 110%;
+  top: 160px;
+  left: -7px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start; /* Align rectangles to the left */
+  overflow-y: auto; /* Enable vertical scrolling */
+  height: calc(100vh - 220px); /* Adjust height based on the top positioning */
+}
+
+.rectangle {
+  width: 202px; /* Set width of the rectangle */
+  height: 377px;
+  background-color: #6B2DBC;
+}
+
+.rectangleBookContent {
+  background-color: #6B2DBC; /* Color para "bookcontent" */
+}
+
+.rectangleBookProblem {
+  background-color: #FF6347; /* Color para "bookproblem" */
+}
+
+.rectangleBookContentProblem {
+  background-color: #32CD32; /* Color para "bookcontentproblem" */
 }
 
 .searchContainer {
-  max-width: 600px;
   margin: 50px auto;
   padding: 0px;
 }
@@ -71,78 +302,9 @@ body {
   border-radius: 2px;
 }
 
-.popup {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(0, 0, 0, 0.5);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.popupContent {
-  position: relative;
-  background-color: white;
-  padding: 20px;
-  border-radius: 8px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  max-width: 400px;
-  text-align: center;
-}
-
-.closeButton {
-  position: absolute;
-  top: 10px;
-  right: 10px;
-  font-size: 20px;
-  cursor: pointer;
-}
-
-.filter-dropdown-wrapper {
-  display: flex; /* or display: grid */
-  align-items: center;
-  justify-content: space-between; /* Adjust as needed */
-  position: absolute; /* Change from fixed */
-  top: 200px; /* Adjust as needed */
-  left: 50px; /* Adjust as needed */
-}
-
 .func {
   position: fixed;
-  top: 40px; /* Set a common top value */
-  left: 0px;
+  top: 40px;
+  left: calc(10% - 40px);
   z-index: 32;
-}
-
-.rectangleContainer {
-  position: relative;
-  width: 110%;
-  top: 150px;
-  left: -7px;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: flex-start; /* Align rectangles to the left */
-  overflow-y: auto; /* Enable vertical scrolling */
-  height: calc(100vh - 220px); /* Adjust height based on the top positioning */
-}
-
-.rectangle {
-  width: 202px; /* Set width of the rectangle */
-  height: 377px;
-  background-color: #6B2DBC;
-}
-
-.rectangleBookContent {
-  background-color: #6B2DBC; /* Color para "bookcontent" */
-}
-
-.rectangleBookProblem {
-  background-color: #FF6347; /* Color para "bookproblem" */
-}
-
-.rectangleBookContentProblem {
-  background-color: #32CD32; /* Color para "bookcontentproblem" */
 }

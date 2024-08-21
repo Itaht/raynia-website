@@ -6,6 +6,7 @@ import BottomHeader from './BottomHeader';
 
 const AddBook = () => {
   const [fileName, setFileName] = useState('Upload File');
+  const [file, setFile] = useState(null);
   const [selectedType, setSelectedType] = useState('');
   const [formValid, setFormValid] = useState(false);
   const [formValues, setFormValues] = useState({
@@ -39,9 +40,21 @@ const AddBook = () => {
   const handleFileUpload = (event) => {
     const file = event.target.files[0];
     if (file) {
-      setFileName(file.name);
+      const reader = new FileReader();
+      reader.onloadend = () => {
+        const dataUrl = reader.result;
+        const shortUrl = generateShortUrl(dataUrl);
+        setFileName(file.name);
+        setFile({
+          data: dataUrl,
+          shortUrl: `/image/${shortUrl}`, // Simulate a shorter URL
+          name: file.name,
+          type: file.type,
+        });
+      };
+      reader.readAsDataURL(file);
     }
-  };
+  };  
 
   const handleCheckboxChange = (event) => {
     setSelectedType(event.target.value);
@@ -57,24 +70,35 @@ const AddBook = () => {
 
   const validateForm = () => {
     const newErrors = {};
+    
+    // Basic fields validation
     Object.keys(formValues).forEach((key) => {
-      if (!formValues[key]) {
+      if (!formValues[key].trim() && (key !== "contentCompleteness" && key !== "textPercentage" && key !== "diagramPercentage" && key !== "picturePercentage")) {
         newErrors[key] = 'This field is required';
       }
     });
-    
-    // Log the values for debugging
-    console.log('Form Values:', formValues);
-    console.log('Errors:', newErrors);
+  
+    // Conditionally validate based on selectedType
+    if (selectedType === 'หนังสือเนื้อหา' || selectedType === 'หนังสือเนื้อหา - โจทย์') {
+      if (!formValues.contentCompleteness.trim()) {
+        newErrors.contentCompleteness = 'This field is required';
+      }
+      if (selectedType === 'หนังสือเนื้อหา - โจทย์') {
+        if (!formValues.textPercentage.trim() || !formValues.diagramPercentage.trim() || !formValues.picturePercentage.trim()) {
+          newErrors.textPercentage = 'All percentage fields are required and must sum to 100%';
+        }
+      }
+    }
   
     setErrors(newErrors);
     setFormValid(Object.keys(newErrors).length === 0);
   };
   
-
+  
   const handleSubmit = (event) => {
     event.preventDefault();
-    validateForm(); // Revalidate the form on submit
+    validateForm();
+  
     if (!formValid) {
       alert('Please complete all fields correctly.');
       return;
@@ -82,14 +106,25 @@ const AddBook = () => {
   
     const formData = {
       ...formValues,
-      fileName: fileName,
+      fileName: file.name,  // Ensure fileName is included
+      fileUrl: file.shortUrl,  // Use the short URL
+      fileType: file.type, // Include the file type
       bookType: selectedType,
       binding: Array.from(event.target.binding).filter(input => input.checked).map(input => input.value),
     };
   
     console.log('Form Data:', formData);
     navigate('/homepage');
-  };
+  }  
+  
+  const imageMap = {};
+
+const generateShortUrl = (dataUrl) => {
+  const shortId = Math.random().toString(36).substr(2, 5); // Generate a short identifier
+  imageMap[shortId] = dataUrl;
+  return shortId;
+};
+
   
 
   return (

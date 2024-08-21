@@ -17,6 +17,24 @@ import AddBookProblemData from './components/AddBookProblemData';
 import AddBookContentProblemData from './components/AddBookContentProblemData';
 import './styles/App.css';
 
+// In-memory store for image mappings (this won't persist after a page reload)
+const imageMap = {};
+
+export const generateShortUrl = (dataUrl) => {
+  const shortId = Math.random().toString(36).substr(2, 5); // Generate a short identifier
+  imageMap[shortId] = dataUrl;
+  return shortId;
+};
+
+const ImageDisplay = ({ match }) => {
+  const dataUrl = imageMap[match.params.id];
+  if (dataUrl) {
+    return <img src={dataUrl} alt="Uploaded" />;
+  } else {
+    return <div>Image not found</div>;
+  }
+};
+
 const App = () => {
   return (
     <Router>
@@ -38,6 +56,8 @@ const App = () => {
             <Route path="/addbookcontentdata" element={<AddBookContentData />} />
             <Route path="/addbookproblemdata" element={<AddBookProblemData />} />
             <Route path="/addbookcontentproblemdata" element={<AddBookContentProblemData />} />
+            {/* Route to handle short URLs for images */}
+            <Route path="/image/:id" element={<ImageDisplay />} />
           </Routes>
         </main>
       </div>
