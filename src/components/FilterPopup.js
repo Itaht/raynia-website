@@ -85,8 +85,13 @@ const FilterPopup = () => {
     setShowGraphProblem(false);
     setVisibleGraphContent('');
     setVisibleGraphProblem('');
+    setFormValues({
+      contentCompleteness: '',
+      publisher: '',  // Add any other fields you have in your formValues state here
+      author: ''
+    });
   };
-
+  
   const handleConfirm = () => {
     const selectedData = {
       selectedLevel,
@@ -95,6 +100,7 @@ const FilterPopup = () => {
       showGraphProblem,
       visibleGraphContent,
       visibleGraphProblem,
+      ...formValues,
     };
 
     console.log('Selected Data:', selectedData);
@@ -105,6 +111,19 @@ const FilterPopup = () => {
     // Close the popup
     closePopup();
   };
+
+  const [formValues, setFormValues] = useState({
+    contentCompleteness: '',
+  });
+  
+  const handleInputChange = (event) => {
+    const { name, value } = event.target;
+    setFormValues({
+      ...formValues,
+      [name]: value,
+    });
+  };
+  
 
   return (
     <div className={styles.container}>
@@ -389,10 +408,29 @@ const FilterPopup = () => {
                   </div>
                 </div>
               </div>
+              <div className={styles.formGroup9}>
+                <label htmlFor="publisher">ค้นหาจากสำนักพิมพ์: </label>
+                  <input
+                    type="text"
+                    id="publisher"
+                    name="publisher"
+                    value={formValues.publisher}
+                    onChange={handleInputChange}
+                  />
+              </div>
+              <div className={styles.formGroup9}>
+                <label htmlFor="author">ค้นหาจากชื่อผู้แต่ง: </label>
+                  <input
+                    type="text"
+                    id="author"
+                    name="author"
+                    value={formValues.author}
+                    onChange={handleInputChange}
+                  />
+              </div>
             </div>
           </div>
         </div>
-
         <div className={styles.buttonContainer}>
           <button className={styles.clearButton} onClick={handleClear}>Clear</button>
           <button className={styles.confirmButton} onClick={handleConfirm}>Confirm</button>

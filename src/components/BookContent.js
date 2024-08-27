@@ -10,6 +10,7 @@ const BookContent = () => {
     const [currentTutorial, setCurrentTutorial] = useState(1);
     const [showBookPopup, setShowBookPopup] = useState(false);
     const [currentImage, setCurrentImage] = useState('book'); // State to track current book image
+    const [showExplanationStylePopup, setShowExplanationStylePopup] = useState(false); // State for explanation style popup
     const navigate = useNavigate();
 
     const handleIconClick = () => {
@@ -48,9 +49,21 @@ const BookContent = () => {
     const prevImage = () => {
         setCurrentImage(prevImage => (prevImage === 'book1' ? 'book' : 'book1'));
     };
-  
+
+    const handleExplanationStyleClick = () => {
+        setShowExplanationStylePopup(true);
+    };
+
+    const closeExplanationStylePopup = () => {
+        setShowExplanationStylePopup(false);
+    };
+
+    const handleAddDataClick = () => {
+        navigate('/addbookcontentdata');
+    };
+
     const tutorials = [
-      { id: 1, src: '/tutorials/tutorial1.svg', alt: 'Tutorial 1' },
+        { id: 1, src: '/tutorials/tutorial1.svg', alt: 'Tutorial 1' },
       { id: 2, src: '/tutorials/tutorial2.svg', alt: 'Tutorial 2' },
       { id: 3, src: '/tutorials/tutorial3.svg', alt: 'Tutorial 3' },
       { id: 4, src: '/tutorials/tutorial4.svg', alt: 'Tutorial 4' },
@@ -71,12 +84,8 @@ const BookContent = () => {
       { id: 19, src: '/tutorials/tutorial19.svg', alt: 'Tutorial 19' },
       { id: 20, src: '/tutorials/tutorial20.svg', alt: 'Tutorial 20' }
     ];
-  
-    const currentTutorialData = tutorials.find(tutorial => tutorial.id === currentTutorial);
 
-    const handleAddDataClick = () => {
-        navigate('/addbookcontentdata');
-    };
+    const currentTutorialData = tutorials.find(tutorial => tutorial.id === currentTutorial);
 
     return (
         <div className={styles.welcome}>
@@ -103,7 +112,9 @@ const BookContent = () => {
                                 <button className={styles.buttonNext} onClick={nextTutorial} disabled={currentTutorial === tutorials.length}>{">"}</button>
                             </>
                         )}
-                        <button className={styles.buttonClose} onClick={closeTutorialPopup}></button>
+                        <button className={styles.buttonClose} onClick={closeTutorialPopup}>
+                           
+                        </button>
                     </div>
                 </div>
             )}
@@ -115,17 +126,40 @@ const BookContent = () => {
                         <button className={styles.buttonPrev1} onClick={prevImage}>{"<"}</button>
                         <img src={`/${currentImage}.jpg`} alt={currentImage} className={styles.popupImage} />
                         <button className={styles.buttonNext1} onClick={nextImage}>{">"}</button>
-                        <button onClick={closeBookPopup} className={styles.buttonClose}></button>
+                        <button onClick={closeBookPopup} className={styles.buttonClose}>
+                            <img src='/discard.svg' alt='Close' />
+                        </button>
                     </div>
                 </div>
             )}
+
+            {/* Explanation Style Popup */}
+            {showExplanationStylePopup && (
+                <div className={styles.overlay} onClick={closeExplanationStylePopup}>
+                    <div className={styles.explanationPopup} onClick={e => e.stopPropagation()}>
+                        <button onClick={closeExplanationStylePopup} className={styles.closeButton}>
+                            <img src='/discard.svg' alt='Close' />
+                        </button>
+                        <img src='/explanationstylepopup.svg' alt='Explanation Style Popup' />
+                    </div>
+                </div>
+            )}
+
             <div className={styles.details}>
-            <div className={styles.description}>รายละเอียดหนังสือ</div>
-            <div className={styles.contentCompleteness}>ความครบของเนื้อหา</div>
-            <div className={styles.contentdetail}>ความละเอียดของเนื้อหา</div>
-            <div className={styles.explanationstyle}>รูปแบบการอธิบาย</div>
-            <div className={styles.easyused}>ใช้งานง่าย</div>
-            <div className={styles.comfortableread}>อ่านสบายตา</div>
+                <div className={styles.description}>รายละเอียดหนังสือ</div>
+                <div className={styles.contentCompleteness}>ความครบของเนื้อหา</div>
+                <div className={styles.contentdetail}>ความละเอียดของเนื้อหา</div>
+                <div className={styles.explanationstyle}>
+                    <div className={styles.explanationstyletext}>รูปแบบการอธิบาย</div>
+                    <img
+                        className={styles.explanationstylepopup}
+                        src='icontutorial.svg'
+                        alt='Explanation Style'
+                        onClick={handleExplanationStyleClick}
+                    />
+                </div>
+                <div className={styles.easyused}>ใช้งานง่าย</div>
+                <div className={styles.comfortableread}>อ่านสบายตา</div>
             </div>
             <div className={styles.move}>
                 <div className={styles.bookImageContainer} onClick={handleImageClick}>

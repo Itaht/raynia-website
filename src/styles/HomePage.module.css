@@ -191,7 +191,7 @@ body {
 .addButton {
   position: fixed;
   bottom: 150px;
-  right: 20px;
+  right: 3.5%;
   width: 80px;
   height: 80px;
   background-color: #ab80e3c7;
@@ -202,7 +202,7 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  z-index: 80;
+  z-index: 10;
   transition: transform 0.3s ease;
 }
 
@@ -217,32 +217,57 @@ body {
   transform: rotate(90deg);
 }
 
+/* Customize scrollbar for the rectangleContainer */
 .rectangleContainer {
   position: relative;
-  width: 110%;
-  top: 220px;
-  left: -7px;
+  width: calc(100% - 20px);
+  top: 240px;
+  left: 0;
+  margin: 0 auto;
   display: flex;
   flex-wrap: wrap;
-  justify-content: flex-start; /* Align rectangles to the left */
+  justify-content: center;
+  padding-right: 10px;
+  padding-left: 10px;
   overflow-y: auto; /* Enable vertical scrolling */
-  height: calc(100vh - 220px); /* Adjust height based on the top positioning */
+  height: calc(100vh - 390px);
+}
+
+/* Scrollbar styles */
+.rectangleContainer::-webkit-scrollbar {
+  width: 8px; /* Width of the vertical scrollbar */
+  height: 8px; /* Height of the horizontal scrollbar */
+}
+
+.rectangleContainer::-webkit-scrollbar-thumb {
+  background-color: #6B2DBC; /* Color of the scrollbar thumb */
+  border-radius: 10px; /* Rounded corners on the scrollbar thumb */
+}
+
+.rectangleContainer::-webkit-scrollbar-track {
+  background-color: #f4f4f4; /* Background color of the scrollbar track */
+  border-radius: 10px;
+}
+
+/* Scrollbar for Firefox */
+.rectangleContainer {
+  scrollbar-color: #AB80E3 #f4f4f4; /* Thumb color and track color */
 }
 
 .rectangle {
-  width: 202px; /* Set width of the rectangle */
+  flex: 0 1 202px; /* Set width of the rectangle with flex-grow and flex-shrink */
   height: 377px;
   background-color: #6B2DBC;
 }
 
 .rectangleBookContent {
-  background-color: #6B2DBC; /* Color para "bookcontent" */
+  background-color: #6B2DBC; /* Color for "bookcontent" */
 }
 
 .rectangleBookProblem {
-  background-color: #FF6347; /* Color para "bookproblem" */
+  background-color: #FF6347; /* Color for "bookproblem" */
 }
 
 .rectangleBookContentProblem {
-  background-color: #32CD32; /* Color para "bookcontentproblem" */
+  background-color: #32CD32; /* Color for "bookcontentproblem" */
 }

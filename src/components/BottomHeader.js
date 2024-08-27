@@ -1,12 +1,13 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { useNavigate, useLocation } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import styles from '../styles/BottomHeader.module.css';
 
 const BottomHeader = () => {
   const navigate = useNavigate();
-  const location = useLocation();
-  const [position, setPosition] = useState('home'); // Default to 'home'
-  const [extraOffset, setExtraOffset] = useState(0); // Initialize extra offset
+  const [position, setPosition] = useState(() => {
+    // Get the last position from localStorage or default to 'home'
+    return localStorage.getItem('purpleButtonPosition') || 'home';
+  });
   const purpleButtonRef = useRef(null);
   const buttonRefs = {
     home: useRef(null),
@@ -14,60 +15,44 @@ const BottomHeader = () => {
     sign: useRef(null),
   };
 
-  useEffect(() => {
-    const updatePositionBasedOnPath = () => {
-      switch (location.pathname) {
-        case '/search':
-          setPosition('search');
-          break;
-        case '/sign-in':
-        case '/sign-up':
-        case '/sign':
-          setPosition('sign');
-          break;
-        case '/book':
-        case '/addbookdata': 
-          setPosition('book');
-          break;
-        case '/homepage':
-        default:
-          setPosition('home');
-          break;
-      }
-    };
+  const movePurpleButton = (newPosition) => {
+    const targetButton = buttonRefs[newPosition].current;
+    const purpleButton = purpleButtonRef.current;
 
-    updatePositionBasedOnPath();
-  }, [location.pathname]);
+    if (targetButton && purpleButton) {
+      const targetButtonRect = targetButton.getBoundingClientRect();
+      const headerRect = purpleButton.parentElement.getBoundingClientRect();
+      const newTranslateX = targetButtonRect.left - headerRect.left;
 
-  useEffect(() => {
-    const updatePurpleButtonPosition = () => {
-      const button = buttonRefs[position].current;
-      const purpleButton = purpleButtonRef.current;
-      if (button && purpleButton) {
-        const buttonRect = button.getBoundingClientRect();
-        const headerRect = purpleButton.parentElement.getBoundingClientRect();
-        // Position relative to header with extra offset
-        purpleButton.style.transform = `translateX(${buttonRect.left - headerRect.left + extraOffset}px)`;
-      }
-    };
-
-    updatePurpleButtonPosition();
-
-    window.addEventListener('resize', updatePurpleButtonPosition);
-    return () => {
-      window.removeEventListener('resize', updatePurpleButtonPosition);
-    };
-  }, [position, extraOffset]);
+      purpleButton.style.transform = `translateX(${newTranslateX}px)`;
+    }
+  };
 
   const handleClick = (newPosition, path) => {
+    // Only update if the new position is different from the current one
     if (newPosition !== position) {
-      setExtraOffset(prevOffset => prevOffset + 10); // Increment offset by 10px each time a new button is clicked
+      movePurpleButton(newPosition);
       setPosition(newPosition);
-    }
+      localStorage.setItem('purpleButtonPosition', newPosition);
 
-    // Ensure the navigation happens immediately after the position is set
-    navigate(path);
+      // After the button has moved, navigate to the new page
+      setTimeout(() => {
+        navigate(path);
+      }, 500); // Adjust the timeout to match the transition duration (0.5s)
+    }
   };
+
+  useEffect(() => {
+    // On initial load, just move the purple button to the last known position
+    movePurpleButton(position);
+
+    // Adjust position on window resize
+    const handleResize = () => movePurpleButton(position);
+    window.addEventListener('resize', handleResize);
+    return () => {
+      window.removeEventListener('resize', handleResize);
+    };
+  }, [position]);
 
   return (
     <header className={styles.header}>
@@ -89,17 +74,9 @@ const BottomHeader = () => {
           src={
             position === 'home' 
               ? '/iconbottomheader/homewhite.svg' 
-              : position === 'book' 
-              ? '/iconbottomheader/bookwhite.svg' 
               : '/iconbottomheader/homeblack.svg'
           } 
-          alt={
-            position === 'home' 
-              ? 'Home White' 
-              : position === 'book' 
-              ? 'Book White' 
-              : 'Home Black'
-          } 
+          alt='Home Icon' 
           className={styles.homewhite} 
         />
       </div>
@@ -113,7 +90,7 @@ const BottomHeader = () => {
         </button>
         <img 
           src={position === 'search' ? '/iconbottomheader/searchwhite.svg' : '/iconbottomheader/searchblack.svg'} 
-          alt={position === 'search' ? 'Search White' : 'Search Black'} 
+          alt='Search Icon' 
           className={styles.searchblack} 
         />
       </div>
@@ -127,7 +104,7 @@ const BottomHeader = () => {
         </button>
         <img 
           src={position === 'sign' ? '/iconbottomheader/signwhite.svg' : '/iconbottomheader/signblack.svg'} 
-          alt={position === 'sign' ? 'Sign White' : 'Sign Black'} 
+          alt='Sign Icon' 
           className={styles.signblack} 
         />
       </div>

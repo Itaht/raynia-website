@@ -10,6 +10,7 @@ const BookContentProblem = () => {
     const [currentTutorial, setCurrentTutorial] = useState(1);
     const [showBookPopup, setShowBookPopup] = useState(false);
     const [currentImage, setCurrentImage] = useState('book'); // State to track current book image
+    const [showExplanationStylePopup, setShowExplanationStylePopup] = useState(false); // State for explanation style popup
     const navigate = useNavigate();
 
     const handleIconClick = () => {
@@ -47,6 +48,14 @@ const BookContentProblem = () => {
 
     const prevImage = () => {
         setCurrentImage(prevImage => (prevImage === 'book1' ? 'book' : 'book1'));
+    };
+
+    const handleExplanationStyleClick = () => {
+        setShowExplanationStylePopup(true);
+    };
+
+    const closeExplanationStylePopup = () => {
+        setShowExplanationStylePopup(false);
     };
   
     const tutorials = [
@@ -119,11 +128,30 @@ const BookContentProblem = () => {
                     </div>
                 </div>
             )}
+            {/* Explanation Style Popup */}
+            {showExplanationStylePopup && (
+                <div className={styles.overlay} onClick={closeExplanationStylePopup}>
+                    <div className={styles.explanationPopup} onClick={e => e.stopPropagation()}>
+                        <button onClick={closeExplanationStylePopup} className={styles.closeButton}>
+                            <img src='/discard.svg' alt='Close' />
+                        </button>
+                        <img src='/explanationstylepopup.svg' alt='Explanation Style Popup' />
+                    </div>
+                </div>
+            )}
             <div className={styles.details}>
             <div className={styles.description}>รายละเอียดหนังสือ</div>
             <div className={styles.contentCompleteness}>ความครบของเนื้อหา</div>
             <div className={styles.contentdetail}>ความละเอียดของเนื้อหา</div>
-            <div className={styles.explanationstyle}>รูปแบบการอธิบาย</div>
+            <div className={styles.explanationstyle}>
+                    <div className={styles.explanationstyletext}>รูปแบบการอธิบาย</div>
+                    <img
+                        className={styles.explanationstylepopup}
+                        src='icontutorial.svg'
+                        alt='Explanation Style'
+                        onClick={handleExplanationStyleClick}
+                    />
+                </div>
             <div className={styles.varietyOfQuestions}>ความหลากหลายของโจทย์</div>
             <div className={styles.answer}>เฉลย</div>
             <div className={styles.difficultyOfQuestions}>ความยากของโจทย์</div>

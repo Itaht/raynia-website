@@ -310,14 +310,13 @@ const generateShortUrl = (dataUrl) => {
                     <div className={styles.formGroup9}>
                       <label htmlFor="contentCompleteness">ความครบของเนื้อหา:</label>
                       <input
-  type="text"
-  id="contentCompleteness"
-  name="contentCompleteness"
-  value={formValues.contentCompleteness}
-  placeholder="กรอกเลข 0 - 10"
-  onChange={handleInputChange}
-/>
-
+                        type="text"
+                        id="contentCompleteness"
+                        name="contentCompleteness"
+                        value={formValues.contentCompleteness}
+                        placeholder="กรอกเลข 0 - 10"
+                        onChange={handleInputChange}
+                      />
                     </div>
                   {/* ความยาวต่อหัวข้อ Section */}
                   <div className={styles.radioTopicContainer}>
@@ -828,7 +827,7 @@ const generateShortUrl = (dataUrl) => {
                   <div className={styles.formGroup10}>
   <label htmlFor="textPercentage">Text:</label>
   <input
-    type="text"
+    type="number"
     id="textPercentage"
     name="textPercentage"
     value={formValues.textPercentage}  // Bind value to formValues
@@ -840,7 +839,7 @@ const generateShortUrl = (dataUrl) => {
 <div className={styles.formGroup10}>
   <label htmlFor="diagramPercentage">Diagram:</label>
   <input
-    type="text"
+    type="number"
     id="diagramPercentage"
     name="diagramPercentage"
     value={formValues.diagramPercentage}  // Bind value to formValues
@@ -852,7 +851,7 @@ const generateShortUrl = (dataUrl) => {
 <div className={styles.formGroup10}>
   <label htmlFor="picturePercentage">Picture:</label>
   <input
-    type="text"
+    type="number"
     id="picturePercentage"
     name="picturePercentage"
     value={formValues.picturePercentage}  // Bind value to formValues

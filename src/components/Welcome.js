@@ -40,8 +40,8 @@ const Welcome = () => {
       </motion.div>
       <motion.div
         initial={{ scale: 0 }}
-        animate={{ scale: 8 }}
-        transition={{ duration: 3, ease: 'easeOut', delay: 1 }}
+        animate={{ scale: 50 }}
+        transition={{ duration: 25, ease: 'easeOut', delay: 1 }}
         className={styles.welcomemain}
       >
         <img className={styles.welcomedrop} src='/welcomedrop.svg' alt='Welcome Drop' />

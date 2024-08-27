@@ -374,3 +374,35 @@ body {
   position: relative; /* Asegúrate de que la posición sea relativa o estática */
   top: -10px;
 }
+
+.explanationstylepopup {
+  position: inherit;
+  left: 170px;
+  top: 4px;
+  width: 13%;
+  height: auto;
+}
+
+.explanationPopup {
+  position: relative;
+  /* Other styling properties */
+}
+
+.closeButton {
+  position: absolute;
+  top: 30px; /* Adjust the positioning as needed */
+  right: 35px; /* Adjust the positioning as needed */
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 0; /* Remove padding to fit the image perfectly */
+}
+
+.closeButton img {
+  width: 10px; /* Adjust the size of the close button image */
+  height: 10px;
+}
+
+.closeButton:hover img {
+  opacity: 0.8; /* Optional: Add a hover effect */
+}
